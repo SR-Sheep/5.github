@@ -1,0 +1,639 @@
+
+
+    /* 기본 폰트, 컬러 설정*/
+body {
+    /*position: relative;*/
+    width: 1100px;
+    margin: auto;
+    font-family: "Noto Sans KR",sans-serif;
+    color: #3d3222;
+}
+.page_title h1 {
+    font-size: 32px ;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+#popupWrap h2, .form_header1 h2, .form_header2 h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.page_title h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+p {
+    font-size: 16px;
+}
+
+/*공통 버튼 설정*/
+#itemRegisterStep button, #popupWrap button, #locationRegisterStep button{
+    width: 100px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #cca872;
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline:none;
+
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 20px;
+}
+
+#locationRegisterStep button.previous_btn, button.close_btn {
+    background-color: #e0e0e0;
+    color: #3d3222;
+    margin-bottom: 20px;
+}
+
+#itemRegisterStep table.item_table tbody tr td .form_delete_btn{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #f3f3f3;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.form_delete_btn .fas.fa-times{
+    font-size: 30px;
+}
+
+label .fa-plus{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.receipt_preview{
+    cursor: pointer;
+}
+
+/*페이지 타이틀*/
+.page_title{
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+#itemRegisterFormWrap {
+    width: 100%;
+}
+
+#locationRegisterFormWrap{
+    width: 1100px;
+}
+/*재료등록 헤더 */
+.form_header1{
+    margin-bottom: 60px;
+}
+
+/*재료 등록 폼 크기*/
+.item_register_form{
+    width: 1100px;
+}
+
+/*재료 등록 테이블 설정*/
+table.item_table {
+    position: relative;
+    background-color: #f3f3f3;
+    width: 100%;
+}
+
+/*table의 width 100%으로 두고 각 col의 width를 비율로 설정*/
+.img_col{
+    width: 14%;
+}
+.receipt_col{
+    width: 12%;
+}
+.item_col{
+    width: 10%;
+}
+.qty_col{
+    width: 14%;
+}
+.min_qty_col{
+    width: 16%;
+}
+.unit_price_col{
+    width: 15%;
+}
+
+.subtotal_price_col{
+    width: 15%;
+}
+
+.delete_btn_col{
+    width: 4%;
+}
+
+table.item_table tbody tr{
+    position: relative;
+    width: 100%;
+    height: 87px;
+}
+
+table.item_table th{
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    padding: 30px 0;
+}
+table.item_table td{
+    font-size: 18px;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+}
+.item_table tbody tr:hover{
+    background-color: #999999;
+}
+
+/*이미지, 영수증 이미지 등록 아이콘*/
+
+.img_upload_popup_btn .fa-image{
+    cursor: pointer;
+    font-size: 80px;
+    line-height: 80px;
+}
+
+.fa-receipt{
+    cursor: pointer;
+    font-size: 50px;
+}
+
+table.item_table input, table input+select{
+    height: 35px;
+    border: 1px solid #3d3222;
+    border-radius: 4px;
+    outline-color: #cca872;
+}
+input.receipt_upload {
+    display: none;
+}
+
+input.item{
+    width: 100px;
+}
+
+input.qty, input.min_qty, input.max_unit_price{
+    width: 40px;
+}
+
+/*총 가격 구역*/
+.item_table tfoot td{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: right;
+    padding-right: 10px;
+}
+.item_table tfoot td .total_price{
+    font-size: 35px;
+    color: #cca872;
+    font-weight: 700;
+}
+
+/*폼 추가 구역*/
+.form_add_area{
+    margin: 60px auto;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    transition: .2s ease;
+}
+.form_add_area:hover{
+    background-color: rgba(243, 243, 243, 0.8);
+}
+
+.fa-plus{
+    font-size: 50px;
+    cursor: pointer;
+    line-height: 80px;
+}
+
+/*안내 문구 구역*/
+.notice_area p{
+    margin: 5px 0;
+}
+
+/*다음 단계 진행 버튼*/
+.next_btn_area{
+    width: 1100px;
+    margin: 60px 0;
+    text-align: right;
+}
+
+/*popup 시 overlay*/
+.overlay{
+    display: none;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.75);
+}
+.overlay.show_popup{
+    display:block;
+}
+
+/*popup 내용공간*/
+.popup_content{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -250px 0 0 -191px;
+    background-color: white;
+    width: 322px;
+    height: 440px;
+    padding: 30px;
+}
+/*팝업 헤더 및 안내*/
+.popup_img_upload_header{
+    height: 30px;
+    border-bottom: 1px solid #999999;
+    text-align: center;
+}
+
+.popup_notice{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.popup_notice span{
+    color: #cca872;
+}
+
+.popup_notice p{
+    font-size: 14px;
+}
+
+/*upload form*/
+.popup_img_upload_form{
+    width: 320px;
+    height: 218px;
+    border: 1px solid #999999;
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+/*upload form 리스트 정렬*/
+/*inline으로해서 input이 같은 라인에 있을 수 있게 함*/
+/*부모 클래스 320px를 벗어나면 아래로 쌓임*/
+.popup_img_upload_form ul{
+    display: inline;
+}
+
+/*inline-block으로 수평으로 쌓일 수 있게 함*/
+.popup_img_upload_form ul li{
+    cursor: pointer;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width:100px;
+    height:100px;
+    margin:0 0 5px 5px;
+}
+
+.popup_img_upload_form img{
+    width: 100px;
+    height: 100px;
+}
+
+.popup_img_upload_form ul li i.fas.fa-times{
+    display: block;
+    width: 15px;
+    height:15px;
+    cursor: pointer;
+    position: absolute;
+    font-size: 15px;
+    right: 0;
+    top: 0;
+}
+
+.receipt_preview{
+    width: 37px;
+    height: 50px;
+}
+
+.popup_img_upload_form li:hover{
+    opacity: .7;
+
+}
+
+.popup_img_upload_form input.img_upload_input{
+    display:none;
+}
+.img_item_add{
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin: 0 0 5px 5px;
+    background-color: #f3f3f3;
+}
+
+.img_item_add label{
+    display: block;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#popupWrap .fa-plus{
+    font-size: 50px;
+    line-height: 100px;
+}
+
+/*popup footer*/
+.popup_footer{
+    text-align: center;
+}
+.form_header2 h2 {
+    margin-bottom: 10px;
+}
+.form_header2 h3{
+    margin-bottom: 20px;
+}
+
+/*장터 장소 선택 header*/
+.form_header2 p {
+    margin: 5px 0;
+}
+.form_header2{
+    margin-bottom: 50px;
+}
+
+/*현재 주소 및 장터 개수 구역 overflow 처리*/
+.count_address_info{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/*지정된 장터 개수*/
+.location_count{
+    font-size: 20px;
+    float: left;
+}
+
+/*선택된 장터 개수 강조*/
+.location_count {
+    color: #cca872;
+    font-weight: 600;
+}
+.location_count_text{
+    color: #3d3222;
+    font-weight: 800;
+}
+
+/*현주소 표시 구역*/
+.current_address{
+    float: right;
+}
+
+/*현재 유저 위치 표시하고, 클릭 시 주소 변경 가능한 버튼*/
+.count_address_info #findAddressBtn{
+    width: auto;
+    height: 30px;
+    font-size: 20px;
+    color: #3d3222;
+    background-color: white;
+}
+
+.far.fa-compass{
+    font-size: 20px;
+}
+
+/*장터 목록 구역*/
+#locationListWrap{
+    width: 520px;
+    height: 530px;
+    overflow-y: scroll;
+}
+
+/*장터카드+체크박스의 크기 설정*/
+.location_list_item{
+    width: 496px;
+    height: 171px;
+    border: 2px solid transparent;
+    transition: .1s ease;
+}
+
+
+/*장터카드+체크박스에서 각 항목별 공간 크기 및 정렬*/
+.location_select_card{
+    overflow: hidden;
+}
+.location_select_card>li:nth-child(1){
+    width: 48px;
+}
+.location_select_card>li:nth-child(2){
+    width: 200px;
+}
+.location_select_card>li:nth-child(3){
+    width: 248px;
+}
+.location_select_card>li{
+    height: 171px;
+    float: left;
+}
+
+/*목록 하단에 구분선*/
+.list_division_line{
+    width: 500px;
+    border-bottom: 1px solid #9e9e9e;
+}
+
+/*체크박스 스타일*/
+label.checkbox_label{
+    display: block;
+    position: relative;
+    left:10px;
+    top: 73px;
+    cursor: pointer;
+    user-select: none;
+}
+.checkbox_label input{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+}
+.checkbox_label .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #e0e0e0;
+}
+.checkbox_label:hover input ~ .checkmark{
+    background-color: #cca872;
+}
+.checkmark:after{
+    content: "";
+    position: absolute;
+    display:none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #3d3222;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.checkbox_label input:checked ~ .checkmark:after{
+    display:block;
+}
+
+/*장터 이미지 크기*/
+.market_img{
+    width: 200px;
+    height: 171px;
+}
+
+/*장터 카드*/
+.market_card{
+    width: 228px;
+    height: 151px;
+    padding: 10px;
+    text-align: center;
+}
+/*header*/
+.card_header{
+    width: 228px;
+    height: 16px;
+    margin-bottom: 15px;
+}
+.card_header h3{
+    font-size: 18px;
+}
+
+/*content*/
+.card_content{
+    width: 228px;
+    height: 120px;
+}
+
+/*유저 프로필*/
+.user_profile{
+    width: 228px;
+    height: 45px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+/*유저 사진+닉네임*/
+.user_profile div.user_information{
+    float: left;
+    margin-left: 8px;
+    height: 45px;
+    line-height: 45px;
+}
+.user_profile img.user_img_thumbnail{
+    vertical-align: middle;
+    width: 29px;
+    height: 29px;
+    border-radius: 29px;
+    border: 1px solid black;
+}
+.user_profile span.user_nickname{
+    margin-left: 5px;
+}
+
+/*장터지기 서비스 지수*/
+.user_profile div.service_idx{
+    float: right;
+    margin-right: 10px;
+    height: 45px;
+}
+
+.service_idx dt{
+    font-size: 10px;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-bottom: 1px solid #3d3222 ;
+}
+
+/*장터 시간 태그*/
+.location_time{
+    width: 228px;
+    height: 70px;
+}
+.location_time ul{
+    width: 228px;
+    overflow: hidden;
+}
+
+.location_time li{
+    display: block;
+    float: left;
+    width: 70px;
+    height: 25px;
+    margin: 0 0 15px 6px;
+}
+
+.time_tag{
+    display: block;
+    font-size: 15px;
+    line-height: 30px;
+    width: 60px;
+    height: 30px;
+    background-color: #aaaaaa;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*체크되었을 때 변경*/
+.location_time input:checked+span{
+    background-color: #cca872;
+    color: #3d3222;
+}
+
+/*선택 안됐을 때는 안 보여짐*/
+.location_time input[type=checkbox]{
+    display: none;
+}
+
+/*지도 크기*/
+#map{
+    width: 575px;
+    height: 530px;
+}
+
+/*장터랑 지도 정렬*/
+#locationRegisterFormWrap{
+    overflow: hidden;
+    margin-bottom: 120px;
+}
+#locationListWrap, #map {
+    float: left;
+}
+
+.submit_btn_area{
+    text-align:right;
+}
+
+#itemRegisterStep {
+    display: none;
+}
+
+#itemRegisterStep.on{
+    display: block;
+}
+
+#locationRegisterStep {
+    display: none;
+    transition: .2s ease;
+}
+#locationRegisterStep.on{
+    display: block;
+
+}

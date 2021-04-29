@@ -1,0 +1,588 @@
+@charset "UTF-8";
+
+/* 
+	0129 방현수
+	검색창 css 추가
+
+
+	0130 방
+	임저레 삭제 수정 버튼 css
+	
+	0202 방
+	- 열람레시피 
+	- 요리후기 팝업 css
+	- 평점 좋/싫 css
+	
+ */
+
+/* ================================= 0202 요리후기 팝업 =========================== */
+.rv_img_upload{
+	display: none;
+}
+
+.rv_img_upload_label{
+	display: block;
+	width:248px;
+	height:200px;
+	cursor:pointer;
+}
+
+input#rvRateLike, input#rvRateDislike  {
+	display:none;
+}
+
+.rv_rate_label{
+	display:block;
+	width: 80px;
+	height: 80px;
+	cursor:pointer;
+}
+
+input#rvRateLike:checked+label{
+	background-color: rgb(204, 168, 114);
+}
+
+input#rvRateLike:checked+label p{
+	color:white;
+}
+
+input#rvRateDislike:checked+label{
+	background-color: rgb(204, 168, 114);
+}
+
+input#rvRateDislike:checked+label p{
+	color:white;
+}
+
+.rv_txt{
+	position: absolute;
+    right: 25px;
+    bottom: 35px;
+    color: #3d3222;
+    font-size: 15px;
+}
+
+.rv_txt_count{
+	color: rgb(204, 168, 114);
+}
+
+/* =============================== 검색 부분 CSS ================================= */
+.mypage_recipe_tab_header{
+	position: relative;
+    overflow: hidden;
+    width: 1000px;
+    height: 50px;
+}
+
+.search_form{
+    position: absolute;
+    left: 10px;
+}
+
+.align_filter_area{
+	position: absolute;
+	right: 0;
+}
+
+.search_form input:focus{
+	outline: rgb(204, 168, 114);
+}
+
+.search_form input{
+	width: 200px;
+	height : 30px;
+	
+}
+
+.align_filter_area input{
+	display:none;
+}
+
+.align_filter_area label{
+    width: 65px;
+    height: 40px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+#mypageRecipeWrap .align_filter_area input:checked+label{
+	background-color: rgb(204, 168, 114);
+    color: white;
+    border: 1px solid transparent;
+}
+
+/* =============================== btn css ================================ */
+
+.edit_btn:hover, .delete_btn:hover, .recipe_review_btn:hover, .saved_recipe_delete_btn:hover{
+	background-color:#cca872;
+	color: white;
+}
+
+.edit_btn a:hover {
+	color:white;
+}
+
+body{
+    user-select: none;
+    color: #3d3222;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+}
+
+a:link, a:visited {
+    color: #3d3222;
+    text-decoration: none;
+}
+
+#mypageRecipeWrap{
+	
+    width: 1000px;
+    margin: 60px auto 0 auto;
+}
+#mypageRecipeTabNavbar{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#mypageRecipeTabNavbar ul{
+    width: 1000px;
+    overflow: hidden;
+    border-right: 2px solid #424242;
+    border-top: 2px solid #424242;
+}
+
+#mypageRecipeTabNavbar ul li{
+    text-align: center;
+    float: left;
+    width: 248px;
+    height: 46px;
+    border-left: 2px solid #424242;
+    border-bottom: 2px solid #424242;
+    background-color: #fafafa;
+    line-height: 46px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#mypageRecipeTabNavbar .tab_list.on{
+    background-color: white;
+    border-bottom: 2px solid transparent;
+}
+#mypageRecipeTabNavbar .tab_icon{
+    font-size: 20px;
+    margin-right: 20px;
+}
+#mypageRecipeTabNavbar .tab_title{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+#mypageRecipeTabNavbar .tab_num{
+    margin-left: 20px;
+    color: #cca872;
+}
+
+.tab_wrap{
+    display: none;
+}
+
+.tab_wrap.on{
+    display: block;
+}
+
+.tab_wrap ul{
+    width: 1100px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.tab_wrap ul li {
+    width: 230px;
+    height: 320px;
+    padding: 20px 20px 40px 0;
+    float: left;
+}
+
+.mypage_myrecipe_tab.tab_wrap ul li{
+    height: 350px;
+}
+
+.tab_wrap .box {
+    position: relative;
+
+    width:230px;
+    height:320px;
+
+    border:2px solid #424242;
+
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mypage_myrecipe_tab ul li .box{
+    height: 350px;
+}
+
+/*레시피 그림 안 리본*/
+.tab_wrap .box::after {
+    content: "";
+    background-image: url("img/ribbon1.png");
+    background-size: 30px 60px;
+    display: block;
+    width: 30px;
+    height: 60px;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.tab_wrap .box::before {
+    content: "";
+    background-image: url("img/ribbon4.png");
+    background-size: 30px 60px;
+    display: block;
+    width: 30px;
+    height: 60px;
+    right: 30px;
+    top: 0;
+    position: absolute;
+}
+
+
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.title {
+    font-size: 18px;
+}
+.box img {
+    width: 230px;
+    height: 180px;
+}
+
+.box .profile {
+    position: relative;
+    height: 32px;
+    line-height: 32px;
+    margin: 10px 5px;
+}
+.title_rate{
+    width: 230px;
+    overflow: hidden;
+    height: 42px;
+}
+.title_area{
+    float: left;
+    height: 32px;
+    padding: 5px;
+}
+.rate_area{
+    float:right;
+    padding: 5px;
+}
+
+.rate_area img{
+    color: goldenrod;
+    width: 30px;
+    height: 30px;
+    float: left;
+    /*position: absolute;*/
+   /*top: 555px;*/
+   /*left: 590px;*/
+}
+.rate_point {
+    color: goldenrod;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    /*position: absolute;*/
+   /*top: 545px;*/
+   /*left: 620px;*/
+}
+
+.profile_area .profile_img {
+    border: 3px solid black;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    float: left;
+
+    position: relative;
+    overflow: hidden;
+
+}
+.profile_name {
+    font-size: 14px;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+}
+.recipe_area {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    float: right;
+    width: 90px;
+    font-size: 14px;
+}
+.recipe_area i {
+    color: rgb(204, 168, 114);
+}
+.profile_area {
+    top: 0;
+    position: absolute;
+    float: left;
+    width: 130px;
+    /*overflow: hidden;*/
+    height: 32px;
+}
+
+
+
+.search_result span {
+
+    background-color: rgb(204, 168, 114);
+    border-radius: 10px;
+    color: white;
+    width: 80px;
+    height: 30px;
+    float: left;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+
+    display: block;
+    margin: 20px 15px;
+    cursor: pointer;
+    /*margin:auto;*/
+}
+
+.search_result {
+    position: absolute;
+    float: left;
+    width: 230px;
+    height: 70px;
+}
+
+/*tmp recipe*/
+
+.edit_btn_area, .recipe_review_area, .saved_recipe_delete_area{
+    width: 230px;
+    height: 32px;
+    text-align: center;
+}
+
+.edit_btn, .delete_btn, .recipe_review_btn, .saved_recipe_delete_btn{
+    font-family: "Noto Sans KR", sans-serif;
+    border: 2px solid #cca872;
+    border-radius: 4px;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .2s ease;
+}
+
+.edit_btn_area .edit_btn, .delete_btn{
+    width: 110px;
+    height: 32px;
+}
+
+
+.recipe_review_btn, .saved_recipe_delete_btn{
+    width: 220px;
+    height: 32px;
+}
+
+/*더보기 버튼(무한스크롤)*/
+.view_more_btn_area{
+    margin-top: 20px;
+    width: 1000px;
+    text-align: center;
+}
+
+.view_more_btn {
+    width: 1000px;
+    margin-top: 60px;
+    height: 60px;
+    outline:none;
+    border: none;
+    background-color: #999999;
+    color: #2d2d2d;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/*요리후기 팝업 */
+.review_popup_overlay{
+    display: none;
+    z-index: 15;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.75);
+}
+.review_popup_overlay.show_popup{
+    display:block;
+}
+
+.review_popup_wrap{
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    padding: 50px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -250px 0 0 -350px;
+}
+
+
+.review_popup_header{
+    width: 600px;
+    height: 80px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.review_popup_header .recipe_info{
+    width: 250px;
+    float: left;
+}
+
+.recipe_info .recipe_info_text{
+    color: #3d3222;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 8px;
+}
+
+.recipe_info_text p{
+    margin: 0 0 10px 0;
+}
+
+.recipe_info_text span{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.recipe_info .review_profile_area span{
+    font-size: 14px;
+    font-weight: inherit;
+}
+
+.recipe_info .review_profile_area .profile_img{
+    width: 24px;
+    height: 24px;
+    border: 1px solid #fafafa;
+    border-radius: 25px;
+    vertical-align: middle;
+}
+
+.review_popup_header .like_dislike_area{
+    width: 350px;
+    height: 80px;
+    float: right;
+}
+
+.review_popup_header .like_dislike_area {
+    position: relative;
+}
+
+.like_area, .dislike_area{
+    margin: 0 20px 0 70px;
+    text-align: center;
+    font-size: 14px;
+    float: left;
+}
+
+.like_area:hover, .dislike_area:hover{
+    font-weight: 700;
+    background-color: #cca872;
+    color: white;
+}
+
+
+.review_popup_content{
+	position: relative;
+    width: 558px;
+    height: 210px;
+    padding: 20px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+}
+
+
+.review_popup_footer{
+    margin: auto;
+    width: 600px;
+}
+
+.img_upload_area{
+    width: 248px;
+    height: 200px;
+    border: 1px solid #cca872 ;
+    text-align: center;
+    line-height: 200px;
+    font-size: 50px;
+    vertical-align: middle;
+    float: left;
+    cursor: pointer;
+}
+.review_content {
+    width: 278px;
+    height: 198px;
+    border: 1px solid #cca872;
+    float: right;
+    resize: none;
+}
+.review_popup_footer{
+    margin-top: 20px;
+    width: 600px;
+    text-align: center;
+}
+
+.review_popup_footer button{
+    width: 100px;
+    height: 40px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.review_popup_footer .review_submit_btn{
+    background-color: #cca872;
+    color:white;
+    margin-right: 10px;
+}
+
+.review_popup_close_btn{
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 25px;
+    font-weight: 900;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+

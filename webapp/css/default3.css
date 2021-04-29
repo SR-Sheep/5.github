@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'NIXGONM-Vb';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    overflow-y: scroll;
+}
+body {
+    font-family: 'NIXGONM-Vb', sans-serif;
+    color: #424242;
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    height:100px;
+    z-index: 1;
+    background: #fff;
+}
+
+.header_logo_search_box {
+    width: 340px;
+    height: 100px;
+    float: left;
+    /*background: pink;*/
+}
+.header_logo_search_box img {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    float: left;
+}
+.header_logo_search_box form {
+    width: 240px;
+    height: 40px;
+    position: relative;
+    float: left;
+}
+.header_logo_search_box input {
+    padding-left: 8px;
+    width: 228px;
+    height: 38px;
+    border-radius: 20px;
+    border: 1px solid #424242;
+    float: left;
+    margin: 30px 0;
+}
+.header_logo_search_box input:focus {
+    outline: none;
+}
+.header_logo_search_box button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    left: 205px;
+    top: 35px;
+    color: #fff;
+    background-color: #ffab40;
+}
+.header_logo_search_box button:hover{
+    cursor: pointer;
+}
+.header_my_activity_box {
+    width: 340px;
+    float: right;
+    /*background: #00C853;*/
+    position: relative;
+}
+.header_crew_list {
+    width: 160px;
+    height: 40px;
+    margin: 30px 0;
+    float: left;
+}
+.header_crew_list li {
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+.header_crew_list li:nth-child(2) {
+    margin: 0 20px;
+}
+.header_crew_list li>a {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+.header_crew_list img {
+    border-radius: 50%;
+}
+.header_crew_list_on {
+    border: 2px solid #3eb39d;
+    width: 36px;
+    height: 36px;
+}
+.header_meeting_home {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    margin: 30px 30px 30px 60px;
+    float: left;
+}
+.fa-handshake{
+    color : #ff6333;
+}
+.fa-user-circle{
+    color:#757575;
+}
+.header_status {
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 25px 0;
+    float: left;
+}
+.header_status_dropbox{
+    width: 80px;
+    height: 60px;
+    right:0;
+    bottom:-60px;
+    position:absolute;
+    border: 1px solid #424242;
+}
+.header_status_dropbox li{
+    width: 80px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    font-size: 16px;
+}
+.header_status_dropbox li>a {
+    /*background: red;*/
+}
+
+
+/*--------------------------------------------------------header end*/
+/*footer start*/
+#footer{
+    width: 100%;
+    border-top: 1px solid #424242;
+}
+#footerInner{
+    padding-top:5px;
+    width: 1080px;
+    margin:0 auto;
+}
+.footer_container{
+    width: 1080px;
+    height: 30px;
+    background: green;
+    margin:auto;
+}
+#footer > div{
+    height: 30px;
+}
+.footer_container_left{
+    float: left;
+}
+.footer_container_left li{
+    float: left;
+    text-align: left;
+}
+.footer_container_left li:nth-child(2){
+    margin:0 20px;
+}
+.clear_fix::after{
+    content: "";
+    clear: both;
+}
+.footer_container_right{
+    float: right;
+}
+/*-----------------------------------------------------footer end*/
+
+#container{
+    width: 1080px;
+    /*높이를 자식 길이에 맞추기 위해서 하이트 속성에 오토 값 줌*/
+    min-height:400px;
+    margin:auto;
+    position: relative;
+    /*background: indianred;*/
+    padding-top: 100px;
+}
+
+.inner {
+    margin: 0 auto;
+    height: 100px;
+    width: 1080px;
+}

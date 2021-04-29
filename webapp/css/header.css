@@ -1,0 +1,190 @@
+ body {
+        font-family: "Noto Sans KR", sans-serif;
+        /*폰트 색*/
+        color: #3d3222;
+        padding-top: 70px;
+    }
+    
+    a{
+    	text-decoration: none;
+    	color: #3d3222;
+    }
+    
+      #header {
+        padding: 5px;
+        width: 1100px;
+        margin: auto;
+        height: 60px;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        background: #fff;
+        font-weight: 700;
+        border-bottom: 2px solid #efefef;    
+        
+        z-index:1  
+        
+    }
+    
+
+    #header li {
+        float: left;
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 5px;
+
+        /*padding: 15px;*/
+        text-align: center;
+        /*background-color: aquamarine;*/
+    }
+
+    #header .logo img {
+        height: 50px;
+        text-align: center;
+    }
+    #header .logo {
+        position: absolute;
+        left:481px;
+    }
+  
+
+    /*로그인 버튼*/
+    #header #login {
+        /*아나바다 키컬러*/
+        display: block;
+        background-color: rgb(204, 168, 114);
+        border-radius: 10px;
+        height: 40px;
+        width: 100px;
+        line-height: 40px;
+        margin-top: 10px;
+        color: white;
+        text-align: center;
+        font-size: 18px;
+        transition: .2s ease;
+    }
+
+    #header #login:hover{
+        background-color: #b89878;
+    }
+
+
+    #header a, #header button{
+        text-decoration: none;
+        font-family: "Noto Sans KR", sans-serif;
+        /*폰트 색*/
+        color: #3d3222;
+    }
+
+    #header li a {
+        display: block;
+        width: 80px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    #header li a:hover {
+        /* 아나바다 호버 색*/
+        color: rgb(184, 152, 120);
+    }
+    #header li a.active {
+        /*아나바다 키컬러*/
+        background-color: #CCA872;
+        color: white;
+    }
+
+    .right{
+        position: relative;
+        float: right;
+    }
+
+    .circle{
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        position: absolute;
+        right:10px;
+        margin: 8px;
+        border: 2px solid #fafafa;
+        background-color: #cca872;
+    }
+
+    .circle img{
+        width: 38px;
+        height: 38px;
+        border-radius: 40px;
+        background-color: #cca872;
+        cursor: pointer;
+    }
+
+    .recipe_regist{
+        right:80px;
+        text-align: center;
+        line-height: 37px;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .user_menu{
+        position:absolute;
+        width: 120px;
+        right: 15px;
+        background-color: #CCA872;
+        color: #fff;
+        top:80px;
+    }
+
+    .user_menu::before{
+        content: "";
+        position: absolute;
+        top:-30px;
+        right: 15px;
+        width: 0;
+        height: 0;
+        border : 15px solid transparent;
+        border-bottom: 15px solid #CCA872;
+    }
+
+
+    .user_menu div{
+        width: 100px;
+        margin: auto;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .user_menu div:first-child{
+        border-bottom: 2px solid #fff;
+    }
+    
+    #header .user_menu button{
+    	background-color: transparent;
+    	font-family: "Noto Sans KR", sans-serif;
+    	font-size: 15px;
+    	border : 0px solid transparent;
+    	font-weight: 700; 
+        /*폰트 색*/
+        color: #3d3222;
+        cursor: pointer;
+    }	
+	
+    
+     #header .user_menu a:hover, #header .recipe_regist:hover, #header .user_menu button:hover{
+        color: #fff;
+    }
+    
+
+    #header .user_menu a, #header .recipe_regist, #header .user_menu button{
+        transition: .2s ease;
+    }
+
+    .hidden{
+        display: none;
+    }    
+ 
+
+

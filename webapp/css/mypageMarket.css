@@ -1,0 +1,653 @@
+@charset "UTF-8";
+
+/*   
+0208 방
+검색 부분 추가
+
+*/
+/* =============================== 검색 부분 CSS ================================= */
+
+.mypage_recipe_tab_header{
+	position: relative;
+    overflow: hidden;
+    width: 1000px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+
+.align_filter_area{
+	position: absolute;
+	right: 0;
+}
+
+.align_filter_area input{
+	display:none;
+}
+
+.align_filter_area label{
+    width: 65px;
+    height: 40px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#pageWrap .align_filter_area input:checked+label{
+	background-color: rgb(204, 168, 114);
+    color: white;
+    border: 1px solid transparent;
+}
+
+
+body{
+	user-select: none;
+	color: #3d3222;
+	font-family: "Noto Sans KR", sans-serif;
+	font-size: 22px;
+}
+
+a:link, a:visited{
+    color: #3d3222;
+}
+
+#pageWrap{
+    width: 1000px;
+    margin: 50px auto 0 auto;
+}
+
+#tabNavbar{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#tabNavbar ul{
+    width: 750px;
+    overflow: hidden;
+    border-right: 2px solid #424242;
+    border-top: 2px solid #424242;
+}
+
+#tabNavbar ul li{
+    text-align: center;
+    float: left;
+    width: 248px;
+    height: 46px;
+    border-left: 2px solid #424242;
+    border-bottom: 2px solid #424242;
+    background-color: #fafafa;
+    line-height: 46px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#tabNavbar .tab_icon{
+    font-size: 20px;
+    margin-right: 30px;
+}
+#tabNavbar .tab_title{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+#tabNavbar .tab_num{
+    margin-left: 30px;
+    color: #cca872;
+}
+
+.tab_wrap{
+    width: 1000px;
+    overflow: hidden;
+}
+
+.tab_wrap li{
+    float: left;
+    width: 142px;
+    height: 130px;
+    text-align: center;
+    line-height: 130px;
+    background-color: #fafafa;
+}
+
+      /*더보기 버튼*/
+.view_more{
+    width: 1000px;
+    text-align: center;
+
+}
+
+.view_more_btn{
+    width: 1000px;
+    margin-top: 60px;
+    height: 60px;
+    outline:none;
+    border: none;
+    background-color: #999999;
+    color: #2d2d2d;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+/*거래대기 구역 css*/
+.img_area{
+    width: 140px;
+    height: 130px;
+    position: relative;
+
+}
+
+.item_img{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align:center;
+    position: relative;
+}
+
+.img_area:hover::after{
+	content:"이미지확대";
+	color: white;
+	font-size: 15px;
+	background-color: rgba(0,0,0, .7);
+	width:100px;
+	height: 100px;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: middle;
+	position:absolute;
+	top: 18px;
+	left: 20px;
+	line-height: 100px;
+	z-index: 10;
+}
+
+.trade_tag{
+    position: absolute;
+    display: block;
+    left: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    z-index: 3;
+}
+
+.trade_wait_tab a{
+    display: block;
+    width: 142px;
+    height: 130px;
+}
+
+.tab_header li {
+    float: left;
+    text-align: center;
+    width: 142px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.tab_header {
+    margin-bottom: 20px;
+    height: 60px;
+    overflow: hidden;
+    font-weight: 700;
+}
+
+.tab_wrap ul li .market_img_area{
+    line-height: 80px;
+    height: 80px;
+}
+.market_img{
+    width: 130px;
+    height: 80px;
+}
+.tab_wrap ul li .market_name {
+    line-height: 50px;
+    width: 142px;
+    height: 50px;
+    font-size: 15px;
+}
+
+.market_name span {
+    line-height: initial;
+}
+
+.trade_date{
+    width: 130px;
+    height: 65px;
+    line-height: 90px;
+    border-bottom: 2px solid #424242;
+}
+.trade_time{
+    width: 130px;
+    height: 65px;
+    line-height: 40px;
+}
+
+
+/*이미지 팝업 구역*/
+
+.item_img_popup_overlay{
+    display: none;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(0,0,0,.75);
+}
+
+.item_img_popup_overlay.show_popup{
+    display: block;
+}
+
+.img_popup_wrap{
+    position: fixed;
+    width: 520px;
+    height: 500px;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    margin: -240px 0 0 -260px;
+    padding: 40px 0;
+}
+
+.popup_close_btn{
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 25px;
+    font-weight: 900;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.img_show_area{
+    position: relative;
+    width: 430px;
+    height: 330px;
+    border: 5px solid #424242;
+    background-color: #fafafa;
+    margin: 20px auto 25px auto ;
+}
+
+.img_show_area .img_show img{
+	transition: .2s ease;
+    width: 430px;
+    height: 330px;
+}
+
+.slide_prev_btn, .slide_next_btn{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 155px;
+    cursor:pointer;
+    font-size: 40px;
+    line-height: 20px;
+}
+
+.slide_next_btn {
+    right: -30px;
+}
+
+.slide_prev_btn{
+    left: -30px;
+}
+
+.img_slide_area{
+    position: relative;
+    margin: auto;
+    width: 440px;
+
+}
+.img_slide_area ul{
+    overflow: hidden;
+    width: 435px;
+    height: 90px;
+    border-top: 5px solid #757575;
+    border-bottom: 5px solid #757575;
+    border-right:  5px solid #757575;
+}
+.img_slide_area ul li{
+    width: 82px;
+    height: 90px;
+    background-color: #fafafa;
+    float: left;
+    border-left: 5px solid #757575;
+}
+
+.img_slide_area ul li img{
+	cursor:pointer;
+    width: 82px;
+    height: 90px;
+}
+
+.img_slide_area ul li img:hover{
+	opacity: .8;
+}
+
+
+/*거래완료 탭-평가하기, 신고하기 버튼 css*/
+
+.rate_btn, .report_btn{
+    width: 120px;
+    height: 40px;
+    display: block;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid  #cca872;
+    border-radius: 8px;
+    color: #3d3222;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 22px;
+    background-color: white;
+    margin: 0 auto ;
+    transition: .2s ease;
+}
+
+.rate_btn:hover, .report_btn:hover{
+    background-color: #cca872;
+    color: white;
+}
+
+.rate_btn{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+/*평가하기 팝업*/
+
+.rate_popup_overlay {
+    display: none;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.75);
+}
+
+
+.rate_popup_overlay.show_popup{
+    display: block;
+}
+
+.rate_popup_wrap, .report_popup_wrap{
+    transform: scale(.8);
+    width: 420px;
+    height: 620px;
+    background-color: white;
+    padding: 40px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin: -340px 0 0 -250px;
+}
+
+h3.rate_header{
+    font-size: 22px;
+    font-weight: 700;
+    color: #cca872;
+}
+
+.rate_item_list_area ul{
+    width: 420px;
+}
+
+.item_list{
+    width: 140px;
+    height: 190px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 130px;
+    margin: auto;
+}
+
+.item_info {
+    height: 60px;
+}
+
+.item_info p{
+    line-height: initial;
+    font-size: 16px;
+}
+
+.market_info{
+    position: relative;
+    text-align: center;
+    margin: auto;
+}
+
+.market_info .market_img{
+    width: 300px;
+    height: 160px;
+}
+
+.market_info .market_name span{
+    font-size: 20px;
+    color: #3d3222;
+}
+
+.user_profile{
+    height: 40px;
+}
+.user_profile img{
+    vertical-align: middle;
+    border-radius: 30px;
+    border: 2px solid #fafafa; /* 생각보다 너무 연하다*/
+}
+
+.user_profile span{
+    font-size: 18px;
+}
+
+/*별점 구역*/
+
+#rateArea {
+    overflow: hidden;
+    background: url("img/ratingStar02.png") no-repeat left 0;
+    width: 325px;
+    height: 70px;
+    position: relative;
+    margin: 10px auto 20px auto;
+    line-height: 70px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#rateArea .rating_star{
+    cursor: pointer;
+    float: left;
+    text-indent: -9999px;
+    width: 32.5px;
+    height: 70px;
+    margin: 0;
+    padding:0;
+    border: 0;
+    outline:0;
+    vertical-align: middle;
+    overflow: hidden;
+    background: url("img/ratingStar02.png") no-repeat 0 70px;
+}
+
+#rateArea .rating_star.star_even{
+    background-position: 0 -500px;
+}
+
+#rateArea .rating_star.default_zero{
+    position: absolute;
+    top: -9999px;
+}
+
+.rate_submit_area{
+    width: 100%;
+    text-align: center;
+}
+
+.rate_submit_area .submit_btn, .cancel_btn{
+    width: 165px;
+    height: 60px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.submit_btn{
+    background-color: #cca872;
+}
+
+.cancel_btn{
+    background-color: #9e9e9e;
+}
+
+/*신고하기 팝업*/
+
+.report_popup_overlay{
+    display: none;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.75);
+}
+
+.report_popup_overlay.show_popup{
+    display: block;
+}
+
+h3.report_header{
+    font-size: 22px;
+    color: #cca872;
+}
+#reportArea h4{
+    text-align: center;
+    font-size: 18px;
+}
+
+#reportArea .division_line{
+    margin: 0 auto 10px auto ;
+    width: 320px;
+    height: 15px;
+    border-bottom: 2px solid #9e9e9e;
+}
+
+#reportArea{
+    text-align: center;
+}
+#reportArea .report_text{
+    border: 2px solid #cca872;
+    width: 314px;
+    height: 50px;
+    vertical-align: top;
+    resize: none;
+}
+#reportArea p{
+    text-align: right;
+    font-size: 15px;
+}
+
+.report_submit_area{
+    text-align: center;
+}
+
+.report_submit_area .submit_btn, .report_submit_area .cancel_btn{
+    width: 165px;
+    height: 60px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.text_count_area{
+    width: 320px;
+    margin: auto;
+}
+
+/*승인대기 탭*/
+
+.tab_wrap.confirm_wait_tab ul li{
+    width: 140px;
+
+}
+
+.tab_wrap.confirm_wait_tab ul li .market_name{
+    width: 140px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.tab_wrap.confirm_wait_tab ul li .market_time{
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+.market_list_area ul{
+    width: 420px;
+    overflow: hidden;
+}
+
+.market_list_area ul li{
+    float: left;
+}
+
+/*on 탭 동작*/
+
+.trade_wait_tab {
+    display: none;
+}
+
+.trade_complete_tab{
+    display: none;
+}
+
+.confirm_wait_tab{
+    display: none;
+}
+
+
+.trade_wait_tab.on{
+    display: block;
+}
+
+.trade_complete_tab.on{
+    display: block;
+}
+
+.confirm_wait_tab.on{
+    display: block;
+}
+
+#tabNavbar li.tab_list.on{
+    background-color: white;
+    border-bottom: 2px solid transparent;
+}

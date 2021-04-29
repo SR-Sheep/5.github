@@ -1,0 +1,403 @@
+@charset "utf-8";
+
+/*
+	0128 방
+	수정 내용: 평가 싫어요일 때 css 추가 (evaluation bad)
+
+
+*/
+
+.report_box a, .report_box a:visited, .report_box a:link{
+	color: #3d3222;
+}
+
+.report_box a:hover{
+	color: rgb(184, 152, 120);
+}
+
+#mypageContent a, #mypageContent a:visited, #mypageContent a:link{
+	color: #3d3222;
+	text-decoration: none;
+}
+
+#mypageContent a:hover{
+	color: rgb(184, 152, 120);
+}
+
+.myreview_to_recipe_wrap {
+	display:none;
+}
+
+#mypageContent {
+    /*display: flex;
+     background-color: #fafafa;*/
+    position: relative;
+    margin: auto;
+    top:30px;
+    width: 1000px;
+
+}
+
+
+/*----------탭 영역-------------*/
+
+.tab{
+    width: 1000px;
+    height: 48px;
+    font-size: 18px;
+    border-bottom: 2px solid #BDBDBD;;
+    user-select: none;
+}
+
+/*탭 맨 앞 아이콘 및 등록 숫자 */
+.tab strong{
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+
+/*탭 맨 앞 아이콘 아래 작은 아이콘 */
+.tab strong i:nth-child(2){
+    position: absolute;
+    font-size: 15px;
+    top:23px;
+    left: 23px;
+}
+
+/*탭 내부 */
+
+.tab input[type="radio"]+span{
+    position:relative;
+    border:2px solid #BDBDBD;
+    background-color: #f4f4f4;
+    display: inline-block;
+    width: 242.95px;
+    height: 46px;
+    text-align: center;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.cooking_review_tab input[type="radio"]:checked+span{
+    position : relative;
+    background-color: #fff;
+    border: 2px solid #BDBDBD;
+    border-bottom: 2px solid #fff;
+}
+
+
+.cooking_review_card{
+    float: left;
+    margin:20px 5px;
+    position: relative;
+    width: 480px;
+    border: 5px solid #efefef;
+    background-color: #efefef;
+}
+
+.cooking_review_receipt{
+    width: 480px;
+    height: 60px;
+    margin-bottom: 5px;
+    position:relative;
+    border-bottom: 2px solid #BDBDBD;
+
+}
+
+.cooking_review_receipt .receipt_main_img img{
+    float: left;
+    transform: translateY(5px);
+    width: 65px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cooking_review_title {
+    float: left;
+    margin: 5px;
+}
+
+
+.cooking_review_title h4:before{
+    content:"9,700p로 만드는";
+    position: absolute;
+    top: -15px;
+    font-size: 10px;
+    margin-bottom: 5px;
+
+}
+
+.cooking_review_title h4 {
+    transform: translatey(20px);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cooking_review_receipt .member{
+    position: absolute;
+    bottom: 0;
+
+}
+
+.cooking_review_receipt .member img{
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+}
+
+.cooking_review_receipt .member span{
+    font-size: 11px;
+    position: relative;
+    top:-4px;
+
+}
+
+
+
+
+.rate img{
+    float:right;
+    transform: translateY(8px);
+    height: 35px;
+    width: 35px;
+}
+
+.rate span{
+    float:right;
+    line-height: 38px;
+    margin: 5px;
+}
+
+.cooking_review_review{
+    position: relative;
+    width: 480px;
+    height: 130px;
+    background-color: #fff;
+
+}
+
+.cooking_review_img{
+    float: left;
+}
+
+
+.cooking_review_img img{
+
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 4px;
+
+}
+
+
+.cooking_review_content{
+    float: left;
+    position: relative;
+    width: 280px;
+    margin: 0 10px;
+}
+
+.cooking_review_content_top{
+    position: relative;
+    height: 30px;
+    margin-top: 5px;
+
+}
+.cooking_review_content_mid{
+    height: 70px;
+    margin-top: 5px;
+
+}
+.cooking_review_content_bottom{
+    height: 20px;
+    position: relative;
+    bottom: 0;
+
+}
+
+.cooking_review_content_top .member{
+    float: left;
+    width: 200px;
+}
+
+.member img{
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+}
+
+.member span{
+    position: relative;
+    top: -6px;
+}
+
+.evaluation{
+    float: left;
+    position: relative;
+    left: -3px;
+    height: 25px;
+
+}
+
+.evaluation img{
+    height: 25px;
+    width: 25px;
+}
+
+.good:after{
+    content: "좋았어요";
+    font-size: 13px;
+    position: relative;
+    top:-7px;
+}
+
+.bad:after{
+    content: "별로에요";
+    font-size: 13px;
+    position: relative;
+    top:-7px;
+}
+
+.siren{
+    display: inline-block;
+    position: relative;
+    top:-8px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/icon_siren_long.png");
+    background-size: 100%;
+    background-position: 0 -60px;
+    cursor: pointer;
+}
+
+.siren:hover{
+    background-position:0 -30px;
+}
+
+.cooking_review_content_bottom span{
+    float: right;
+    font-size: 13px;
+    color: #BDBDBD;
+}
+
+
+/*■■■■■■■■■■■■■■■■■■■ 신고 영역 시작 ■■■■■■■■■■■■■■■■■*/
+.report_box{
+    display: none;
+    position:fixed;
+    background-color: #fff;
+    top:50%;
+    left:50%;
+    margin-top:-390px;
+    margin-left: -250px;
+    transform: scale(.8);
+
+
+    width: 600px;
+    height: 730px;
+
+}
+
+.report_box ul{
+    margin-left: 50px;
+}
+
+.report_box .siren{
+    display: none;
+}
+
+.report_box h3{
+    text-align: center;
+    color: #cca872;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 50px 0 20px 0;
+}
+
+.report_reason{
+    margin: 30px;
+}
+
+
+.report_reason em{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url("../img/radio.png") left top no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.report_reason input[type="radio"]:checked+em{
+    background: url("../img/radio.png") left bottom no-repeat;
+    background-size: 100%;
+}
+
+.report_reason{
+    text-align: center;
+}
+
+.report_reason span, .report_reason #etc{
+    text-align: left;
+    width: 300px;
+    height: 30px;
+    font-size: 23px;
+
+}
+
+.report_reason span{
+    margin : 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn_box{
+    position :absolute;
+    bottom:50px;
+    left:30px;
+}
+
+.report_reason button{
+    width: 231px;
+    height: 50px;
+    background-color: #fff;
+    border: 2px solid #3d3222;
+    font-size: 18px;
+    font-weight: 700;
+    color: #3d3222;;
+    margin: 0 15px;
+    cursor: pointer;
+
+}
+
+.btn_box button:first-child{
+    background-color: #cca872;
+    color: #fff;
+}
+
+.btn_box button:hover{
+    background-color: #b89878;
+    color: #fff;
+}
+
+.report_box .close_btn{
+    position: absolute;
+    right: 0;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.report_box .close_btn:hover{
+    color: #b89878;
+}

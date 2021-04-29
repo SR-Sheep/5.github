@@ -1,0 +1,695 @@
+body{
+    font-family: "Noto Sans KR",sans-serif;
+    color:  rgb(61, 50, 34);
+}
+/* header 영역 */
+.header{
+    width: 1100px;
+    margin: auto;
+    height: 60px;
+    background-color: black;
+}
+
+.contents{
+    width: 1100px;
+    margin: auto;
+}
+
+/* 좌측 */
+#contain{
+    width: 699px;
+    /*height:100%*/
+    border-right: 1px solid #424242;
+    float: left;
+}
+/* 가장 상단부분(제목, 프로필사진, 닉네임, 서비스지수 */
+.headerWrap{
+    height: 80px;
+    background-color: white;
+}
+.h_title{
+    width: 450px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    float: left;
+}
+/* 프로필사진, 닉네임, 서비스지수 부분을 감싼 wrap*/
+.profile_wrap{
+    width: 249px;
+    height: 40px;
+    float: left;
+    padding-top: 20px;
+    padding-bottom:20px ;
+}
+/* 프로필 사진*/
+#profile{
+    top: 15px;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #424242;
+    float: left;
+}
+/* 닉네임 */
+#nickname{
+    width: 120px;
+    line-height: 40px;
+    float: left;
+}
+/* 서비스지수 */
+.service_idx_wrap{
+    width:80px;
+    float: left;
+}
+/* 서비스 지수 점수 */
+.service_idx{
+    margin-top: 5px;
+    height: 35px;
+    font-size: 20px;
+    text-align: center;
+}
+/* 서비스지수 표시*/
+.serviceName{
+    height: 12px;
+    width: 56px;
+    margin-left:12px;
+    font-size: 12px;
+    border-bottom: 1px solid #424242;
+}
+/* 시간표시 */
+.time_wrap{
+    height: 20px;
+    font-size: 16px;
+    background-color: white;
+    text-align: right;
+    padding-right: 15px;
+}
+/* 시간등록 or 탭*/
+.market_keeper_tab{
+    height:50px;
+    background-color: #fff;
+    cursor: pointer;
+}
+/* 장터지기에서만 필요(탭별설정)*/
+.market_keeper_tab::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+/* 탭*/
+.market_tab{
+    width: 100px;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+}
+/* 탭 선택시*/
+.market_tab.on{
+    background-color: rgb(204, 168, 114);
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+.idx_contents.on{
+    display: block;
+}
+/* 주컨텐츠별*/
+.idx_contents{
+    width: 685px;
+    height: 851px;
+    display:none;
+}
+
+/* 주컨텐츠별 상단부분 */
+.idx_contents_top{
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid #424242;
+}
+
+/* contents_top으로 묶인 요소들*/
+.contents_top{
+    line-height: 60px;
+}
+/* 날짜와 시간 */
+.day_time_wrap{
+    width: 170px;
+    font-size: 30px;
+    margin-left: 10px;
+    float: left;
+}
+/* 거래대기 개수 */
+.count_stan_by_deal{
+    width: 120px;
+    font-size: 30px;
+    float: right;
+}
+/* 출력하기 버튼 */
+#outBtn{
+    margin-top: 15px;
+    margin-right: 15px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    background-color: rgb(204, 168, 114);
+    color: #fff;
+    border-radius: 5px;
+    float: right;
+}
+/* 폰트어썸과의 거리두기*/
+.count_stan_by_deal span{
+    margin-left: 35px;
+}
+/*----------------------- 거래대기----------------------------*/
+/* 거래대기 상품목록*/
+.item_sell_wrap{
+    float: left;
+    width: 554px;
+    height:200px;
+    margin: 10px 0px;
+}
+/*판매자영역*/
+.sell_register_form{
+    width: 520px;
+    height: 42px;
+    margin-left: 10px;
+}
+/* 프로필 사진*/
+.profile_img{
+    width:40px;
+    height:40px;
+    border: 1px solid #424242;
+    border-radius: 50%;
+    float: left;
+}
+/* 판매자 닉네임*/
+.seller_name{
+    width:140px;
+    height: 26px;
+    font-size: 18px;
+    line-height: 42px;
+    float: left;
+}
+/* 판매자 신고*/
+.report{
+    width: 60px;
+    height: 30px;
+    float: left;
+    line-height: 42px;
+    margin: 6px;
+}
+/* 신고 이미지*/
+.siren{
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+/* 신고라 적힌 글*/
+.report_siren{
+    width: 30px;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+}
+/*거래날짜*/
+.date_time{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 42px;
+    text-align: right;
+}
+/* 상품 */
+.item_info{
+    width: 540px;
+    height: 140px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 2px dashed #424242;
+    border-radius: 10px;
+    background-color: rgb(241, 241, 241);
+}
+/* 실질적인 크기 */
+.item_info_wrap{
+    padding-left: 5px;
+    padding-top: 20px;
+    height: 100px;
+}
+/* 상품사진 */
+.item_img{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    float: left;
+}
+/* 상품정보 */
+.item{
+    width: 120px;
+    height: 100px;
+    margin: 0 20px;
+    float: left;
+}
+/* 상품 이름*/
+.item_name{
+    font-size: 24px;
+    text-align: center;
+    margin: 10px 0;
+}
+/* 상품개수를 감싼 wrap*/
+.item_count_wrap{
+    width: 80px;
+    height: 56px;
+    margin-left: 20px;
+}
+/* 상품개수*/
+.item_count{
+    width: 50px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 56px;
+    float: left;
+}
+/* 상품단위 */
+.item_count_name{
+    width: 30px;
+    font-size: 24px;
+    line-height: 56px;
+    text-align: center;
+    float: left;
+}
+/* 구매자 및 거래날짜를 감싼 wrap*/
+.buyer_wrap{
+    width:265px;
+    height: 100px;
+    padding-right: 5px;
+    float: left;
+}
+/* 구매자 프로필사진과 이름을 묶은 wrap*/
+.buyer_id_wrap{
+    width: 190px;
+    height: 50px;
+    margin-top: 25px;
+    float: left;
+}
+/* 구매자 닉네임*/
+.buyer_name{
+    width:140px;
+    height: 26px;
+    font-size: 18px;
+    line-height: 42px;
+    float: left;
+}
+/*구매자 신고*/
+.buyer_report{
+    margin-top: 25px;
+}
+/* 버튼을 감싸는 wrap */
+.btn_wrap{
+    float: left;
+    margin: 10px 0 20px 15px;
+}
+/*수령, 불출 버튼*/
+.btn {
+    width: 100px;
+    height: 80px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+    font-size: 24px;
+    border: 1px solid #424242;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* on 일시*/
+.btn.on{
+    background-color: rgb(204, 168, 114);
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 수령버튼 */
+.receipt_btn{
+
+}
+/* 불출버튼 */
+.dispensing_btn{
+    margin-top: 20px;
+}
+/*------------------------ 승인대기 ---------------------*/
+/* 승인대기 폼 크기*/
+.item_stab_by_wrap{
+    float: left;
+    width: 675px;
+    margin: 10px 0px;
+    border-top: 1px solid #424242;
+
+}
+/*승인대기영역의 판매자영역*/
+.sell_confirm_form{
+    width: 655px;
+    height: 42px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+/* 판매시간 wrap*/
+.sell_time_wrap{
+    float: right;
+}
+/* 판매시간 한글표시*/
+.sell_time_name{
+    width: 70px;
+    line-height: 42px;
+    text-align: center;
+    float:right;
+}
+/* 판매신청한 시간대 */
+.time{
+    width: 650px;
+    margin-left: 10px;
+    margin-right: 20px;
+    line-height: 42px;
+    text-align: right;
+}
+/* 판매자가 신청한 아이템 */
+.seller_item_info_wrap{
+    width: 665px;
+    height:90px;
+    margin-bottom: 10px;
+    background-color:rgb(241, 241, 241);
+    border-radius: 10px;
+}
+/* 판매자가 내놓은 상품 이미지 */
+.seller_item_img{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 70px;
+    height: 70px;
+    float: left;
+}
+/* 판매자가 등록한 영수증 이미지 */
+.receipt_img{
+    margin: 10px 10px;
+    width: 70px;
+    height: 70px;
+    float: left;
+}
+/* seller_item_info_wrap의 내용물들 한줄로 표시 */
+.sell_item{
+    float: left;
+    line-height: 90px;
+    font-size: 14px;
+}
+.sell_item_name{
+    width: 100px;
+}
+.sell_item_count{
+    width: 30px;
+    text-align: right;
+}
+.sell_item_range{
+    width: 50px;
+    text-align: center;
+}
+.sell_item_point{
+    width: 50px;
+    text-align: right;
+}
+.sell_item_point_name{
+    margin:0 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.sell_item_date{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: #FFF;
+    border-radius: 10px;
+    float: left;
+    line-height: 30px;
+    font-size: 14px;
+    margin-top: 30px;
+}
+.btn2{
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    margin: 30px 5px;
+    border: 1px solid #424242;
+}
+.confirm_btn{
+    background-color: #cca872;
+}
+/*----------- 거래완료 ------------------------------------*/
+/* 날짜와 시간 */
+.date_term_wrap{
+    width: 325px;
+    height: 30px;
+    float: left;
+    margin-top: 20px;
+}
+/* 시작날짜 */
+.date_term{
+    width: 150px;
+    font-size: 24px;
+    float: left;
+    text-align: center;
+}
+/* ~ */
+.date_term .left{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+/* 끝날짜*/
+.date_term_middle{
+    float: left;
+    text-align: center;
+    font-size: 24px;
+    width:15px;
+}
+/* 가레완료 폼 크기*/
+.transaction_completed_wrap{
+    float: left;
+    width: 675px;
+    height: 200px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+/* 날짜와 거래상태 표시하는 wrap*/
+.transaction_wrap_top{
+    height: 25px;
+    margin-bottom: 10px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 5px;
+}
+/* 거래날짜 */
+.date_transaction{
+    width: 150px;
+    font-size: 14px;
+    line-height: 25px;
+    padding-left: 10px;
+    float: left;
+}
+/* 거래상태 */
+.status_transaction{
+    width: 60px;
+    font-size: 16px;
+    color: rgb(204, 168, 114);
+    line-height: 25px;
+    padding-right: 10px;
+    float: right;
+}
+/* 거래에 대한 정보표시 wrap */
+.transaction_wrap{
+    height: 150px;
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+}
+/* 주요정보 */
+.transaction_top{
+    width: 655px;
+    height: 120px;
+    margin-left: 10px;
+    background-image: url("../img/arrowLong.png");
+    background-repeat: no-repeat;
+    background-position: 135px;
+}
+/* 판매자 & 구매자 크기지정 */
+.people_transaction_wrap{
+    width: 120px;
+    height: 100px;
+    margin-top: 10px;
+}
+/* 프로필 이미지 사진 크기지정 */
+.transaction_img{
+    width: 70px;
+    height: 70px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+/* 판매자 & 구매자 아이디 크기지정 */
+.people_transaction_name{
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    text-align: center;
+}
+/* 판매자 */
+.seller_transaction_wrap{
+    float: left;
+    margin-left: 10px;
+}
+/* 구매자 */
+.buyer_transaction_wrap{
+    float: right;
+    margin-right: 10px;
+}
+/* 상품크기 지정 */
+.item_transaction_wrap{
+    width: 120px;
+    height: 100px;
+    margin: 10px 135px;
+    float: left;
+}
+/* 상품 이미지 사진 크기지정 */
+.item_transaction_img{
+    width: 70px;
+    height: 70px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+/* 싱픔 이름 크기지정 */
+.item_transaction_name{
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    text-align: center;
+}
+/* 상품가격과 개수 */
+.transaction_bottom{
+    width: 180px;
+    height: 30px;
+    margin: 0 240px;
+}
+/* 상품 갯수크기 */
+.count_transaction_wrap{
+    width: 60px;
+    line-height: 30px;
+    float: left;
+}
+/* 개수 */
+.count_transaction_num{
+    width: 30px;
+    text-align: right;
+    float: left;
+}
+/* 단위 */
+.count_transaction_name{
+    width: 30px;
+    text-align: center;
+    float: left;
+}
+/* 퐇인트 크기 */
+.point_transaction_wrap{
+    width: 80px;
+    line-height: 30px;
+    float: right;
+}
+/* 포인트 */
+.point_transaction_count{
+    width: 60px;
+    text-align: right;
+    float: left;
+}
+/* P */
+.point_transaction_name{
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    float: left;
+}
+
+/*========================= sideBar =================================*/
+/* 지도부분 */
+#sideBar {
+    position: fixed;
+    width: 400px;
+    /*--height: 1001px;*/
+    height: 100%;
+    margin-left: 700px;
+    float: left;
+}
+
+/* 지역구 표시 */
+#mapText{
+    margin-top: 10px;
+}
+/* 사이드 바의 모든 div요소는 마진 레프트로*/
+#sideBar>div{
+    margin-left: 20px;
+}
+/* 한글 지도라 써있는 부분*/
+p{
+    margin-top: 20px;
+    margin-bottom : 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+/* border부분*/
+#hr{
+    margin-bottom: 20px;
+    width: 60px;
+    border-bottom: 1px solid #424242;
+}
+
+/* 지도 */
+#map{
+    position: relative;
+    width:327px;
+    height:317px;
+    z-index: 0;
+    cursor: pointer;
+}
+/* 사진등록div*/
+#photoTitle{
+    margin-top: 80px;
+}
+/* 사진등록 밑줄 */
+#hrPhoto{
+    margin-bottom: 20px;
+    width: 100px;
+    border-bottom: 1px solid #424242;
+}
+
+/* 이미지등록 폼*/
+#file1{
+    display: none;
+}
+
+/*이미지 미리보기*/
+#img{
+    position: relative;
+    margin-left: 20px;
+    width: 320px;
+    height: 245px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.bottom{
+    width: 1100px;
+    margin: auto;
+    height: 60px;
+    background-color: #3d3222;
+    clear: both;
+}

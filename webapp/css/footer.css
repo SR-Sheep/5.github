@@ -1,0 +1,36 @@
+#footer {
+	position:relative;
+	width: 1100px;
+	height: 60px;
+	margin: 100px auto 0 auto;
+	background-color: rgb(241, 241, 241);
+	line-height: 60px;
+	clear:both;
+}
+
+#front {
+	float: left;
+	margin-left: 20px;
+	font-size: 16px;
+}
+
+#back {
+	float: right;
+	margin-right: 20px;
+	font-size: 30px;
+}
+
+.fa-facebook-square {
+	
+}
+
+a {
+	text-decoration: none;
+	color: #3d3222;
+	font-weight: bold;
+}
+
+.fab {
+	font-size: 40px;
+	margin-left: 10px;
+}
