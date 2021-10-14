@@ -31,6 +31,19 @@ public class MemberController {
 	@Autowired
 	private MembersService service;
 	
+	//메인 접속
+	@RequestMapping(value = {"/index","/"}, method=RequestMethod.GET)
+	public String index() {
+		return "index";
+	}
+	//메인 접속
+	@RequestMapping(value = {"/info"}, method=RequestMethod.GET)
+	public String info() {
+		return "index";
+	}
+	
+	
+	
 	//마이페이지 접속
 	@RequestMapping(value = "/mypage/{no}", method = RequestMethod.GET)
 	public String mypage(Model model, @PathVariable int no) {
@@ -74,12 +87,19 @@ public class MemberController {
 		}//if~else end	
 	}
 	
-	//프로필 변경
+	//프로필 기본 이미지로 변경
 	@RequestMapping(value = "/ajax/profile", method = RequestMethod.PUT)
-	public String changeProfile2() {
-		System.out.println("put이다");
-		return "";
+	@ResponseBody
+	public String changeProfileToDefault(HttpSession session, int memberNo) {
+		//프로필 기본 이미지로 변경
+		service.changeProfileDefault(memberNo);
+		System.out.println(memberNo);
+		//profileImage를 세팅(파일의 이름으로)
+		Member loginMember =(Member)session.getAttribute("loginMember");		
+		loginMember.setProfileImg("profile.jpg");
+		return "profile.jpg";
 	}
+	
 	//프로필 변경
 	@RequestMapping(value = "/ajax/profile", method = RequestMethod.POST)
 	@ResponseBody
@@ -116,7 +136,8 @@ public class MemberController {
 	@RequestMapping(value ="/rank/week" ,method = RequestMethod.GET)
 	public String weeklyRanking(Model model, HttpSession sesion) {
 		//랭킹정보 가져오기
-		model.addAllAttributes(service.weeklyRanking((Member)sesion.getAttribute("loginMember")));		
+		Member loginMember=(Member)sesion.getAttribute("loginMember");
+		model.addAllAttributes(service.weeklyRanking(loginMember));		
 		return "/rankingWeekly";
 	}
 	
@@ -138,19 +159,19 @@ public class MemberController {
 	}
 	
 	//닉네임 체크
-		@RequestMapping(value = "/ajax/nickname",method=RequestMethod.GET)
-		@ResponseBody
-		public boolean checkNickname(String nickname) {
-			//닉네임 체크			
-			return service.checkNickname(nickname);
-		}
+	@RequestMapping(value = "/ajax/nickname",method=RequestMethod.GET)
+	@ResponseBody
+	public boolean checkNickname(String nickname) {
+		//닉네임 체크			
+		return service.checkNickname(nickname);
+	}
 		
-		//주소 변경
-		@RequestMapping(value = "/ajax/address",method=RequestMethod.PUT)
-		@ResponseBody
-		public void changeAddress(Address address) {
-			//주소 변경			
-			service.changeAddress(address);
-		}
+	//주소 변경
+	@RequestMapping(value = "/ajax/address",method=RequestMethod.PUT)
+	@ResponseBody
+	public void changeAddress(Address address) {
+		//주소 변경			
+		service.changeAddress(address);
+	}
 
 }

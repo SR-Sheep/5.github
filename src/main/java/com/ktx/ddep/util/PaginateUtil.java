@@ -103,6 +103,7 @@ public class PaginateUtil {
 					paginate += "<a data-no='" + realPage + "' href='" + url + "/page/" + realPage + "' title='"
 							+ realPage + "'>" + realPage + "</a>";
 				} // if ~ else end
+				
 				if (realPage == totalPage) {
 					break;
 				} // if end

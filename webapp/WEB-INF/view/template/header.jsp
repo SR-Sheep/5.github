@@ -35,7 +35,7 @@
 	        </div>
         </c:if>
     </div><!-- header end-->
-<script src="js/jquery.js"></script>
+<script src="/js/jquery.js"></script>
 <script>
 
     //유저 프로필을 누르면 메뉴 나오기

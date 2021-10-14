@@ -10,8 +10,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.ktx.ddep.vo.MarketTime" alias="MarketTime"/>
 		<typeAlias type="com.ktx.ddep.vo.Payment" alias="Payment"/>
+		<typeAlias type="com.ktx.ddep.vo.MarketTime" alias="MarketTime"/>
 		<typeAlias type="com.ktx.ddep.vo.Point" alias="Point"/>
 		<typeAlias type="com.ktx.ddep.vo.Question" alias="Question"/>
 		<typeAlias type="com.ktx.ddep.vo.Trade" alias="Trade"/>

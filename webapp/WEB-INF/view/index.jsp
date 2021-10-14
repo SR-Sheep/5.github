@@ -78,7 +78,7 @@
 <meta charset="UTF-8">
 <title>아나바다</title>
 
- 	<c:import url="/WEB-INF/template/link.jsp"/> 	
+ 	<c:import url="/WEB-INF/view/template/link.jsp"/> 	
     <link rel="stylesheet" href="css/paginate.css">
 	<style>
 		body {
@@ -629,15 +629,15 @@
 	</style>
 </head>
 <body>
+	<c:import url="/WEB-INF/view/template/header.jsp"/>;
 
-	<c:import url="WEB-INF/template/header.jsp"/>
 
 	
 
 	<!-- ========================히어로 이미지 + 소개글 part==================================== -->
     <div class="contents_wrap">
         <div class="hero_img_content">
-            <img id="heroImg" src="img/mainImg/mainImg.jpg">
+            <img id="heroImg" src="/img/mainImg/mainImg.jpg">
 
             <div class="introduction_wrap">
                 <p><span class="introduction_point_text">아</span>까운 재료</p>
@@ -668,7 +668,7 @@
 				<div class="market_card">
 					<div class="market_card_container"> 
 						<input type="hidden" id="marketNo" value="<@=marketCard.MARKETNO@>"/>
-               	 		<img class="market_card_img" src="img/marketImg/<@=marketCard.IMG@>"/>
+               	 		<img class="market_card_img" src="/img/marketImg/<@=marketCard.IMG@>"/>
                 		<div class="market_card_name"><@=marketCard.NAME@></div>
 						<div class="market_card_market_time_wrap">
 							<@ _.each(marketCard.TIMES,function(time) { @>
@@ -676,7 +676,7 @@
 							<@})@>
 						</div><!-- .market_card_market_time_wrap end-->
                 		<div class="market_card_marketkeeper">
-                    		<img src="img/<@=marketCard.PROFILEIMG@>" class="user_profile_img">
+                    		<img src="/img/<@=marketCard.PROFILEIMG@>" class="user_profile_img">
                     		<span class="user_nick_name"><@=marketCard.NICKNAME@></span>
                     		<dl class="marketkeeper_service_idx">
                         		<dt class="service_idx_name">서비스 지수</dt>
@@ -743,11 +743,11 @@
 					<div class="ribbon_wrap">
 						<div class="easy ribbon">--%>
 						<%-- if(rcp.getItemCount()<4) { --%>
-							<img src="img/ribbon4Easy3.png">						
+							<img src="/img/ribbon4Easy3.png">						
 						<%-- } else if(rcp.getItemCount()<6) { --%>
-							<img src="img/ribbon5Easy2.png">
+							<img src="/img/ribbon5Easy2.png">
 						<%-- } else if(rcp.getItemCount()<8) { --%>
-							<img src="img/ribbon6Easy1.png">						
+							<img src="/img/ribbon6Easy1.png">						
 						<%-- } //if~else if~else if end --%>
 	                     </div><!--easy ribbon end-->
 	                 </div><!--ribbon_wrap end-->				
@@ -793,7 +793,7 @@
     </div><!-- .ranking_wrap end-->
 	 
 <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■여기서부터는 자바스크립트 구역■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  -->
-	<c:import url="WEB-INF/template/footer.jsp"/>
+<c:import url="/WEB-INF/view/template/footer.jsp"/>
 <c:if test="${msg!=null}">
 <!-- msg 있으면 출력 -->	
 <div id="msg">${msg}</div>

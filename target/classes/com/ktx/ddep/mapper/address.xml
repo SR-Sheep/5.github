@@ -10,7 +10,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		regdate
 		FROM address
 		WHERE no=#{no}
-
 	</select>
 
 	<!-- 2021-01-24 이소현 -->

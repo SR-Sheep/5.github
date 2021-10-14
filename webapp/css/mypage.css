@@ -667,12 +667,12 @@
     position: fixed;
     background-color: #fff;
     width: 540px;
-    height: 440px;
+    height: 200px;
     top:50%;
     left:0;
     right:0;
     border: 30px solid #fff;
-    margin:-250px auto;
+    margin:-200px auto;
     clear:both;
 }
 
@@ -785,8 +785,6 @@
     width: 270px;
     height: 43px;
 }
-
-
 
 
 .star_graph{

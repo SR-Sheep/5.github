@@ -63,14 +63,11 @@ public class MembersServiceImpl implements MembersService {
        	cal.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
        	String sat = dateFmt.format(cal.getTime()).toString();
 
-       	//저번주 일요일 얻기
-       	cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-       	String sun = dateFmt.format(cal.getTime()).toString();
-
-       	//주간 랭킹을 위한 객체 생성, 원래는 시작시간을 mon으로 넣어야 하지면 현재 데이터를 가져오기 위해 강제로 210101로 설정
+       	//주간 랭킹을 위한 객체 생성, 원래는 시작 일을 sun으로 넣어야 함 
+       	//더미데이터를 위해 강제로 시작일 210101로 설정
        	Point point =new Point("2021-01-01",sat);
-       	//Q? no를 넣어주기는 하는데 이 no가 그 no가 아닌데 애라 모르겠다?
-       	point.setNo(no);
+       	//포인터 객체에 멤버 번호 넣기
+       	point.setMemberNo(no);
        	
        	//주간 랭킹 얻기
        	Member memberWeeklyRank = membersDAO.selectWeeklyRankOne(point);
@@ -117,7 +114,6 @@ public class MembersServiceImpl implements MembersService {
            	//model에 넣기
            	modelMap.put("timeStr", timeStr);
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
      	
 		return modelMap;
@@ -136,6 +132,32 @@ public class MembersServiceImpl implements MembersService {
 		return membersDAO.updateProfileImg(member);
 	}
 	
+	//프로필 사진 기본 이미지로 변경
+	@Override
+	public int changeProfileDefault(int no) {
+		return membersDAO.updateProfileImgDefault(no);
+	}
+	//닉네임 체크
+	@Override
+	public boolean checkNickname(String nickname) {
+		//닉네임 검색
+		int count = membersDAO.selectCheckNickname(nickname);
+		//검색되면 참
+		boolean result=count==1;
+		
+		return result;
+	}
+	
+	//닉네임 변경
+	@Override
+	public int changeNickname(Member member) {
+		return membersDAO.updateNickname(member);
+	}
+	
+	//주소 변경
+	public void changeAddress(Address address) {
+		addressDAO.updateAddress(address);
+	}
 	
 	//주간랭킹정보 가져오기
 	@Override
@@ -161,19 +183,9 @@ public class MembersServiceImpl implements MembersService {
 		List<Member> members= membersDAO.selectWeeklyRankList(point);
 		//랭킹정보 넣기
 		modelMap.put("members", members);
-		//마지막 순위 정보를 위한 랭킹 선언
-		int lastRanking;
-		//100명이 넘으면 최대 사이즈 100명, 나머지 경우 멤버 최대한 보여주기
-		if(members.size()>101){
-			lastRanking=100;
-		}else{
-			lastRanking=members.size();
-		}
-		//마지막 랭킹 순위 넣기
-		modelMap.put("lastRanking", lastRanking);		
 		//로그인되어 있으면 멤버 랭킹정보 가져오기
 		if(loginMember!=null) {
-			point.setNo(loginMember.getNo());	
+			point.setMemberNo(loginMember.getNo());	
 			modelMap.put("myRank", membersDAO.selectWeeklyRankOne(point));
 		}
 		return modelMap;
@@ -210,28 +222,6 @@ public class MembersServiceImpl implements MembersService {
 		return modelMap;
 	}
 	
-	//닉네임 변경
-	@Override
-	public int changeNickname(Member member) {
-		return membersDAO.updateNickname(member);
-	}
-	
-	//닉네임 체크
-	@Override
-	public boolean checkNickname(String nickname) {
-		//닉네임 변경
-		int count = membersDAO.selectCheckNickname(nickname);
-		//변경되면 참
-		boolean result=count==1;
-		
-		return result;
-	}
-	
-	
-	//주소 변경
-	public void changeAddress(Address address) {
-		addressDAO.updateAddress(address);
-	}
 	
 	
 

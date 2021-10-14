@@ -13,7 +13,7 @@ WHERE member_no=#{memberNo}
 ORDER BY time
 </select>
  -->
-<!--210128 양 경택씨한테서 받음, 이전 매퍼 주석처리  -->
+<!--210128 오경택 장터 시간 가져오기  -->
 <select id="time" parameterType="int" resultType="MarketTime">
 		SELECT no,time
 		FROM market_times

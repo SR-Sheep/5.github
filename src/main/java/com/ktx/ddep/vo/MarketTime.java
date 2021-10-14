@@ -1,6 +1,5 @@
 package com.ktx.ddep.vo;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 
@@ -8,8 +7,6 @@ public class MarketTime {
 
 	private int no, memberNo, time;	
 	private Timestamp regdate;
-	//210129 빠른 시간 포맷을 위한 decimalFormat 선언
-	private DecimalFormat df = new DecimalFormat("00");
 	
 	public int getNo() {
 		return no;
@@ -39,6 +36,9 @@ public class MarketTime {
 	public MarketTime() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	//210129 빠른 시간 포맷을 위한 decimalFormat 선언
+	private DecimalFormat df = new DecimalFormat("00");
 	
 	//210109 양 완전한 시간 형식으로 time get하기
 	public String getPerfectTime() {		

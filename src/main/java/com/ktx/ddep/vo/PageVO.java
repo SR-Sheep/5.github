@@ -7,13 +7,10 @@ public class PageVO {
 	private String keyword;
 	//21-02-13 16:27 양 필터로 레시피 정렬을 위한 선언
 	private String choice;
-	
-	
 	//21-02-05 23:50 양 포인트 목록을 들고 오기 위해 선언
 	private char pointsStatus;
 	
 	public PageVO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public PageVO(int pageNo, int numPage) {

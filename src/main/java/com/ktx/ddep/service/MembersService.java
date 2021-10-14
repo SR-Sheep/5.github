@@ -15,6 +15,9 @@ public interface MembersService {
 
 	// 프로필 사진 변경
 	public int changeProfile(Member member);
+	
+	//프로필 기본 사진으로 변경
+	public int changeProfileDefault(int no);
 
 	// 주간랭킹
 	public Map<String, Object> weeklyRanking(Member loginMember);

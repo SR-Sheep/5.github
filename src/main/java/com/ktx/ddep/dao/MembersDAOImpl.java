@@ -48,8 +48,8 @@ public class MembersDAOImpl implements MembersDAO {
 	}
 
 	// 210127 양 no로 전체 랭킹 정보 얻어오기
-	public Member selectTotalRankerOne(int no) {
-		return session.selectOne("members.selectTotalRankerOne", no);
+	public Member selectTotalRankerOne(int memberNo) {
+		return session.selectOne("members.selectTotalRankerOne", memberNo);
 	}
 
 	// 2021-01-23 이소현

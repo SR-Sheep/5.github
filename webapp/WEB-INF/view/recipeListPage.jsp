@@ -326,44 +326,6 @@ html { overflow-y:scroll; }
 	font-size: 25px;
 }
 
-/*    리본 구역 */
-/*    .ribbon_wrap {*/
-/*        width: 30px;*/
-/*        margin: 10px auto;*/
-/*        background-color: aquamarine;*/
-
-/*        !*margin: 10px auto;*!*/
-/*        position: relative;*/
-/*    }*/
-/*    .ribbon_type img{*/
-/*        width: 30px;*/
-/*        height: 50px;*/
-
-/*        vertical-align: middle;*/
-/*    }*/
-/*    .category_ribbon {*/
-/*        margin: auto;*/
-/*        font-size: 10px;*/
-/*        width: 30px;*/
-/*        height: 30px;*/
-/*        !*background-color: yellow;*!*/
-/*        text-align: center;*/
-
-/*        display: block;*/
-/*        position: absolute;*/
-/*        top: 10%;*/
-/*        left: 0;*/
-/*        color: #fff;*/
-/*    }*/
-
-/*.ribbon_price {*/
-/*    width: 30px;*/
-/*    margin: 10px auto;*/
-/*    background-color: aquamarine;*/
-
-/*    !*margin: 10px auto;*!*/
-/*    position: relative;*/
-/*}*/
 
 	/* 리본 안 글씨 */
 	.ribbon_font {
@@ -509,10 +471,7 @@ html { overflow-y:scroll; }
 	.no_recipe img, .no_recipe h3{
 		margin : 20px;
 		
-		
 	}
-	
-	
 	
 	@keyframes fade{
 		0%{
@@ -525,83 +484,22 @@ html { overflow-y:scroll; }
 		}
 	}
 	
-	
-	
-
-
 </style>
 </head>
 <body>
 <c:import url="/WEB-INF/view/template/header.jsp">
 	<c:param name="type" value="recipe"></c:param>
 </c:import>
-
 	<div id="recipe">
 		<form action="/recipe" method="get">
 			<div id="edge">
-				<input type="text" name="keyword" id="search"
+				<input type="text" name="keyword" id="search" autocomplete="off"
 					placeholder="재료, 레시피를 검색하세요.">
 				<button id="getBtn">
 					<i class="fas fa-search"></i>
 				</button>
 			</div>
 			<!-- edge end -->
-		
-
-		<div id="categoryBox" class="hidden">
-
-			<div class="category_price">
-
-				<h2 class="recipe_price">가격대</h2>
-
-				<div class="ribbon_price ">
-
-					<div class="price_area cheap3">
-						<img src="/img/ribbon1Cheap3.png">
-						<input type="checkbox" id="cheap3" name="cheap3" value="3" class="category " />
-						<label for="cheap3" class="category_lbl"> 저렴+3 </label>
-					</div>
-
-					<div class="price_area cheap2">
-						<img src="/img/ribbon2Cheap2.png">
-						<input type="checkbox" id="cheap2" name="cheap2" value="2" class="category " />
-						<label for="cheap2" class="category_lbl "> 저렴+2 </label>
-					</div>
-					<div class="price_area cheap1">
-						<img src="/img/ribbon3Cheap1.png">
-						<input type="checkbox" id="cheap1" name="cheap1" value="1" class="category " />
-						<label for="cheap1" class="category_lbl "> 저렴+1 </label>
-					</div>
-				</div><%--//ribbon_price end --%>
-			</div><%--//category_price end --%>
-			
-			
-
-
-			<div class="category_number">
-				<h2 class="recipe_number">재료수</h2>
-				<div class="number_area comfort3">
-					<img src="/img/ribbon4Easy3.png">
-					<input type="checkbox" name="easy" id="easy3" value="3" class="category" />
-					<label for="easy3" class="category_lbl "> 편리+3 </label>
-				</div>
-				<!-- number_area -->
-				<div class="number_area comfort2">
-					<img src="img/ribbon5Easy2.png"> 
-					<input type="checkbox" name="easy" id="easy2" value="2" class="category"/>
-					<label for="easy2" class="category_lbl "> 편리+2 </label>
-				</div>
-				<!-- number_area -->
-				<div class="number_area comfort1">
-					<img src="img/ribbon6Easy1.png">
-					<input type="checkbox" name="easy" id="easy1" value="1" class="category" />
-					<label for="easy1" class="category_lbl"> 편리+1 </label>
-				</div>
-				<!-- number_area -->
-			</div>
-			<!-- category_number end -->
-		</div>
-		<!-- categoryBox end -->
 		</form>
 		<%--21-02-14 11:32 양 검색시 키워드 보여주기 --%>
 		<div class="recipe_keyword_wrap">
@@ -616,7 +514,6 @@ html { overflow-y:scroll; }
 		<%--21-02-17 14:38 양 레시피 못찾을 시 문구 변경 --%>
 		<c:if test="${rcpsNum!=0}">
 		
-		
 		<div class="recipe_filter">
 			<input type="radio" id="recent" class="radio" name="choice"	checked="checked" />
 			<label for="recent" class="filter_lbl"> 최신순 </label>
@@ -629,6 +526,7 @@ html { overflow-y:scroll; }
 		<h3 class="rcps_num">
 			${rcpsNum}개의 레시피를 찾았습니다.</h3>
 		</c:if>
+		
 		<div class="recipe_list">
 			<div class="recipe_box_wrap">
 			<c:if test="${rcpsNum==0}">
@@ -655,12 +553,8 @@ html { overflow-y:scroll; }
 
 	</div>
 	<!-- recipe end -->
-	
-
-	
-	
-
 	<c:import url="/WEB-INF/view/template/footer.jsp"/>
+
 	<script src="js/jquery.js"></script>
 	<script>
 
@@ -696,9 +590,8 @@ html { overflow-y:scroll; }
 	
 	function getRecipies() {
 		//21-02-09 07:47 양 선택한 필터의 값 받아오기		
-		
 		choice = $('input:checked[name="choice"]').attr('id');		
-		
+	
 		<c:if test="${keyword!='null'}">
 		 keyword="${keyword}";
 		</c:if>
@@ -713,23 +606,21 @@ html { overflow-y:scroll; }
 				console.log(error);
 			},
 			success:function(json){
+				//ajax 로딩이 성공하면 페이지 넘버를 증가시킵니다.
 				page+=1;
-				
-				console.log(json);
-				
+				//각 레시피 목록에 대한 카드를 작성합니다.
 				$(json.recipes).each(function() {			
-							
 				let html="";
 				html+='<div class="recipe_box">';
 					html+='<a class="recipe_box_link" href="/recipe/'+this.no+'">';
 					html+='<img class="recipe_img" src="/img/recipeImg/'+this.img+'" />';
-					<%--방현수 수정 구역--%>
 					html+='<div class="recipe_title_wrap">';
 						html+='<div class="title_area">';
 							html+='<p class="subtitle">';
 							if(this.price!=0){
 								html+=this.price.toLocaleString('ko-KR')+'p로 만드는';
-								}<%--if end--%>	
+							}<%--if end--%>	
+								
 							html+='</p><h3 class="title">'+this.title+'</h3>';
 						html+='</div>';//title area end
 						html+='<div class="rate_area">';
@@ -752,6 +643,7 @@ html { overflow-y:scroll; }
 							html+='<i class="fas fa-bookmark"></i><div>'+numFormat(this.scrapCount)+'</div>';							
 						html+='</div>';//scrap_area end
 					html+='</div>';//profile end
+					
 					<%-- 검색 키워드 존재 시 레시피 밑에 키워드 보여줌 --%>
 					html+='<div class="search_result">';
 						<c:forEach var="word" items="${keywordSet}">
@@ -760,19 +652,16 @@ html { overflow-y:scroll; }
 						}<%--if end --%>							
 						</c:forEach>
 					html+='</div>';<!-- search_result end -->
-					
 					html+='<div class="ribbon_wrap">';
-					
-					html+='<div class="easy ribbon">';
-					if(this.itemCount<4){
-						html+='<img src="img/ribbon4Easy3.png">';						
-					}else if(this.itemCount<6){
-						html+='<img src="img/ribbon5Easy2.png">';						
-					}else if(this.itemCount<8){
-						html+='<img src="img/ribbon6Easy1.png">';						
-					}
+						html+='<div class="easy ribbon">';
+						if(this.itemCount<4){
+							html+='<img src="img/ribbon4Easy3.png">';						
+						}else if(this.itemCount<6){
+							html+='<img src="img/ribbon5Easy2.png">';						
+						}else if(this.itemCount<8){
+							html+='<img src="img/ribbon6Easy1.png">';						
+						}
                     html+='</div>';
-                        
                     html+='<div class="cheap ribbon">';
                     if(this.price==0){                    
 					}else if(this.price<6900){   
@@ -821,27 +710,11 @@ html { overflow-y:scroll; }
 		getRecipies();
 	});
 	
-    
-    // $(".clx").on("click", function (e) {
-    //     e.preventDefault();
-    //
-    //     $(".show").removeClass("show");
-    //
-    //     $(this).next().addClass(".show");
-    //
-    //     const idx = this.dataset.index;
-    //
-    //     const txt = $(this).text();
-    //
-    //     $(".active-tab").css("left",65*idx).text(txt);
-    // })
- 
 
     //스크롤업 버튼누르면 올라가게 하는 기능
     function goTop() {
-        $('html, body').scrollTop(0);
-    //    0.1처 속도 올라가게 애니메이션 넣기
-     // $('html').animate( { scrollTop : 0 }, 100 )
+    	//0.2초 속도 올라가게 애니메이션 넣기
+    	$('html').animate( { scrollTop : 0 }, 200 )
     }
 
 

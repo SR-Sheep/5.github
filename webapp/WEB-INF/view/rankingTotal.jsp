@@ -264,6 +264,7 @@
 
 
 </head>
+
 <body>
 <c:import url="/WEB-INF/view/template/header.jsp">
 	<c:param name="type" value="ranking"></c:param>
@@ -302,20 +303,18 @@
             <!-- 오늘이 포함된 주 보여주기 -->
             <span></span>
         </div>
-
         <div class="winnerPodium">
         <c:forEach var="member" items="${top3}" varStatus="status">
-        
         	<a href="/mypage/${member.no}">
-        	     
-	            <div class="<c:choose>
-        		<c:when test="${status.index==0}">first</c:when><c:when test="${status.index==1}">second</c:when><c:otherwise>third</c:otherwise><%--
+	            <div class="<c:choose><%--
+        		--%><c:when test="${status.index==0}">first</c:when><%--
+        		--%><c:when test="${status.index==1}">second</c:when><%--
+        		--%><c:otherwise>third</c:otherwise><%--
         	--%></c:choose>_member ranker">  
 	                <div class="symbol"></div>
 	                <div class="profile_img_ranker">
 	                    <img src="/img/profileImg/${member.profileImg}" alt="">
 	                </div><!--profile_img_ranker end-->
-	
 	                <div class="member_info">
 	                    <span class="member_grade">
 	                    ${member.gradeImg}
@@ -331,67 +330,41 @@
             </a>
         </c:forEach>
        <%--//winnerPodium forEach end --%>
-
-
         <div class="podium"></div>
-
-
-        </div><!--winnerPodium-->
+       </div><!--winnerPodium-->
 
         <ul class="ranking_list_box">
             <li class="ranking_list list_header">
-                <span class="ranking_num">
-                    순위
-                </span>
-                <span class="member_grade">
-                    등급
-                </span>
-                <span class="member_nick">
-                    정보
-                </span>
-                <span class="cumulative_point">
-                    포인트
-                </span>
+                <span class="ranking_num">순위</span>
+                <span class="member_grade">등급</span>
+                <span class="member_nick">정보</span>
+                <span class="cumulative_point">포인트</span>
             </li><!--ranking_list end-->
             
 		<c:forEach var="member" items="${members}">
            	<a href="/mypage/${member.no}">
             	<li class="line"></li>
 				<li class="ranking_list 
-            	<c:if test="${loginMember!=null&&loginMember.no==member.no}">me</c:if>
-				">
-			        <span class="ranking_num">
-			            ${member.rankNum}
-			        </span>
-			        <span class="member_grade">
-			            ${member.gradeBigImg}
-			        </span>
+            	<c:if test="${loginMember!=null&&loginMember.no==member.no}">me</c:if>">
+			        <span class="ranking_num">${member.rankNum}</span>
+			        <span class="member_grade">${member.gradeBigImg}</span>
 			        <span class="profile_img">
 			            <img src="/img/profileImg/${member.profileImg}" alt="${member.rankNum}등">
 			        </span>
-			        <span class="member_nick">
-						${member.nickname}            
-			        </span>
-			        <span class="cumulative_point">
-						${member.accuPoints}            
-			        </span>	
+			        <span class="member_nick">${member.nickname}</span>
+			        <span class="cumulative_point">${member.accuPoints}</span>	
 		        </li>
-		        </a>
-		</c:forEach><%--forEach end --%>            
-
+	        </a>
+		</c:forEach><%--forEach end --%>
+		            
         </ul><!--ranking_list_box end-->
-        
         ${paginate}
-        
     </div><!-- ranking_total end-->
 </div><!--ranking end-->
 <c:import url="/WEB-INF/view/template/footer.jsp"/>
-
-
-<script type="text/template" id="rankingListTmpl">   
-
-
-</script> <!-- ranking_list_tmpl end-->
-
 </body>
 </html>
+
+
+
+

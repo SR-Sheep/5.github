@@ -16,26 +16,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE email=#{email} AND password=#{password}
 	</select>
 
-	<!--210123 양 랭킹 순위 가져오기 -->
+	<!--210123 양 전체 랭킹 순위 가져오기 -->
 	<select id="selectTotalRankerList" parameterType="PageVO"
 		resultType="Member">
 		SELECT no, email, password, name, nickname, phoneNumber, gender, birthDate,
-		profileImg, regdate, marketkeeperStep, currPoints, accuPoints, grade,
-		addressNo, warning, startDay, loginCount, tutorial, rcpWarning, r
-		rankNum
+				profileImg, regdate, marketkeeperStep, currPoints, accuPoints, grade,
+				addressNo, warning, startDay, loginCount, tutorial, rcpWarning, r
+				rankNum
 		FROM (SELECT no, email, password, name, nickname, phoneNumber, gender,
-		birthDate, profileImg, regdate, marketkeeperStep, currPoints,
-		accuPoints, grade, addressNo, warning, startDay, loginCount, tutorial,
-		rcpWarning, rownum r
-		FROM (SELECT no, email, password, name, nickname, phone_number
-		phoneNumber, gender, birth_date birthDate, profile_img profileImg,
-		regdate, marketkeeper_step marketkeeperStep, curr_points currPoints,
-		accu_points accuPoints, grade, address_no addressNo, warning,
-		start_day startDay, login_count loginCount, tutorial, rcp_warning
-		rcpWarning
-		FROM members
-		ORDER BY accuPoints DESC, regdate ASC)
-		)
+					birthDate, profileImg, regdate, marketkeeperStep, currPoints,
+					accuPoints, grade, addressNo, warning, startDay, loginCount, tutorial,
+					rcpWarning, rownum r
+			  FROM (SELECT no, email, password, name, nickname, phone_number phoneNumber, 
+							gender, birth_date birthDate, profile_img profileImg,
+							regdate, marketkeeper_step marketkeeperStep, curr_points currPoints,
+							accu_points accuPoints, grade, address_no addressNo, warning,
+							start_day startDay, login_count loginCount, tutorial,
+							rcp_warning rcpWarning
+					FROM members
+					ORDER BY accuPoints DESC, regdate ASC
+					)
+			  )
 		WHERE r BETWEEN #{start} AND #{end}
 	</select>
 
@@ -49,31 +50,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectWeeklyRankList" parameterType="point"
 		resultType="Member">
 		SELECT no, email, password, name, nickname, phone_number phoneNumber,
-		gender, birth_date birthDate, profile_img profileImg, regdate,
-		marketkeeper_step marketkeeperStep,curr_points currPoints,accu_points
-		accuPoints, grade,address_no addressNo, warning,start_day
-		startDay,login_count loginCount, tutorial, sumPoint, rcp_warning
-		rcpWarning, rankNum
-		FROM members m, (SELECT memberNo, sumPoint, rownum rankNum
-		FROM(
-		SELECT member_no memberNo, SUM(point_amount) sumPoint
-		FROM points
-		WHERE accu_use_date between #{startDate} and #{endDate}
-		GROUP BY member_no
-		ORDER BY sumPoint DESC) p)
-		WHERE no = memberNo
-		ORDER BY ranknum
+			   gender, birth_date birthDate, profile_img profileImg, regdate,
+			   marketkeeper_step marketkeeperStep,curr_points currPoints,
+			   accu_points accuPoints, grade,address_no addressNo, warning,
+			   start_day startDay,login_count loginCount, tutorial, sumPoint,
+			   rcp_warning rcpWarning, rankNum
+		FROM members m,
+			(SELECT memberNo, sumPoint, rownum rankNum
+			 FROM( SELECT member_no memberNo, SUM(point_amount) sumPoint
+				   FROM points
+				   WHERE accu_use_date between #{startDate} and #{endDate}
+				   GROUP BY member_no
+				   ORDER BY sumPoint DESC
+				  )
+		     ) p
+		WHERE no = memberNo AND rankNum &lt; 101
+		ORDER BY rankNum
 	</select>
 
 
 	<!--210127 양 no로 member정보 가져오기 -->
 	<select id="selectOne" resultType="Member">
 		SELECT no, email, password, name, nickname, phone_number phoneNumber,
-		gender, birth_date birthDate, profile_img profileImg, regdate,
-		marketkeeper_step marketkeeperStep, curr_points currPoints,
-		accu_points accuPoints, grade, address_no addressNo, warning,
-		start_day startDay, login_count loginCount, tutorial, rcp_warning
-		rcpWarning
+				gender, birth_date birthDate, profile_img profileImg, regdate,
+				marketkeeper_step marketkeeperStep, curr_points currPoints,
+				accu_points accuPoints, grade, address_no addressNo, warning,
+				start_day startDay, login_count loginCount, tutorial, rcp_warning rcpWarning
 		FROM members
 		WHERE no=#{no}
 	</select>
@@ -81,22 +83,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--210127 양 no로 전체랭킹 정보 가져오기 -->
 	<select id="selectTotalRankerOne" resultType="Member">
 		SELECT no, email, password, name, nickname, phoneNumber, gender, birthDate,
-		profileImg, regdate, marketkeeperStep, currPoints, accuPoints, grade,
-		addressNo, warning, startDay, loginCount, tutorial, rcpWarning, r
-		rankNum
+				profileImg, regdate, marketkeeperStep, currPoints, accuPoints, grade,
+				addressNo, warning, startDay, loginCount, tutorial, rcpWarning, r
+				rankNum
 		FROM (SELECT no, email, password, name, nickname, phoneNumber, gender,
-		birthDate, profileImg, regdate, marketkeeperStep, currPoints,
-		accuPoints, grade, addressNo, warning, startDay, loginCount, tutorial,
-		rcpWarning, rownum r
-		FROM (SELECT no, email, password, name, nickname, phone_number
-		phoneNumber, gender, birth_date birthDate, profile_img profileImg,
-		regdate, marketkeeper_step marketkeeperStep, curr_points currPoints,
-		accu_points accuPoints, grade, address_no addressNo, warning,
-		start_day startDay, login_count loginCount, tutorial, rcp_warning
-		rcpWarning
-		FROM members
-		ORDER BY accuPoints DESC, regdate ASC)
-		)
+			  		 birthDate, profileImg, regdate, marketkeeperStep, currPoints,
+			  	     accuPoints, grade, addressNo, warning, startDay, loginCount, tutorial,
+			  		 rcpWarning, rownum r
+			  FROM (SELECT no, email, password, name, nickname, phone_number phoneNumber,
+			  			   gender, birth_date birthDate, profile_img profileImg,
+			               regdate, marketkeeper_step marketkeeperStep, curr_points currPoints,
+			   			   accu_points accuPoints, grade, address_no addressNo, warning,
+			  			   start_day startDay, login_count loginCount, tutorial, rcp_warning rcpWarning
+					FROM members
+					ORDER BY accuPoints DESC, regdate ASC
+					)
+			  )
 		WHERE no=#{no}
 	</select>
 
@@ -104,25 +106,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectWeeklyRankOne" parameterType="point"
 		resultType="Member">
 		SELECT no, email, password, name, nickname, phoneNumber, gender,birthDate,
-		profileImg, regdate, marketkeeperStep,currPoints,accuPoints, grade,
-		addressNo, warning,startDay, loginCount, tutorial, sumPoint,
-		rcpWarning, rankNum
+			   profileImg, regdate, marketkeeperStep,currPoints,accuPoints, grade,
+			   addressNo, warning,startDay, loginCount, tutorial, sumPoint,
+			   rcpWarning, rankNum
 		FROM(SELECT no, email, password, name, nickname, phone_number phoneNumber,
-		gender, birth_date birthDate, profile_img profileImg, regdate,
-		marketkeeper_step marketkeeperStep,curr_points currPoints,accu_points
-		accuPoints, grade,address_no addressNo, warning,start_day
-		startDay,login_count loginCount, tutorial, sumPoint, rcp_warning
-		rcpWarning, rankNum
-		FROM members m, (SELECT memberNo, sumPoint, rownum rankNum
-		FROM(
-		SELECT member_no memberNo, SUM(point_amount) sumPoint
-		FROM points
-		WHERE accu_use_date between #{startDate} and #{endDate}
-		GROUP BY member_no
-		ORDER BY sumPoint DESC) p)
-		WHERE no = memberNo
-		ORDER BY ranknum)
-		WHERE no=#{no}
+			    	gender, birth_date birthDate, profile_img profileImg, regdate,
+					marketkeeper_step marketkeeperStep,curr_points currPoints,
+					accu_points accuPoints, grade,address_no addressNo, warning,
+					start_day startDay,login_count loginCount, tutorial, sumPoint,
+					rcp_warning	rcpWarning, rankNum
+			 FROM members m, (SELECT memberNo, sumPoint, rownum rankNum
+							  FROM( SELECT member_no memberNo, SUM(point_amount) sumPoint
+									FROM points
+									WHERE accu_use_date between #{startDate} and #{endDate}
+									GROUP BY member_no
+									ORDER BY sumPoint DESC
+							  	   ) 
+			  				  )
+			 WHERE no = memberNo
+			 ORDER BY ranknum
+			 )
+		WHERE no=#{memberNo}
 	</select>
 
 	<!-- 2021-01-23 이소현 -->

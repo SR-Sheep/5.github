@@ -14,6 +14,7 @@
 	pageEncoding="UTF-8"%>
 	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -296,12 +297,14 @@ a {
 
 			<div class="winnerPodium">
 				<c:forEach var="i" begin="0" end="2" step="1">				
-				
 				<a href="/mypage/${members[i].no}">
 				<div
-					class="
-           		<c:choose>
-				<c:when test="${i=='0'}">first</c:when><c:when test="${i=='1'}">second</c:when><c:otherwise>third</c:otherwise></c:choose>_member ranker">
+					class="<c:choose><%-- 
+					--%><c:when test="${i=='0'}">first</c:when><%--
+					--%><c:when test="${i=='1'}">second</c:when><%--
+					--%><c:otherwise>third</c:otherwise><%--
+				--%></c:choose><%--
+					--%>_member ranker">
 					<div class="symbol"></div>
 						<div class="profile_img_ranker">
 							<img src="/img/profileImg/${members[i].profileImg}"
@@ -318,7 +321,8 @@ a {
 						</div>					
 					<!--member_info end-->
 				</div>
-				</a>				
+				</a>
+								
 				</c:forEach><%--//winnerPodium end --%>
 				<!--단상 이미지  -->					
 				<div class="podium"></div>
@@ -327,13 +331,9 @@ a {
 			
 			<ul class="ranking_card_box">
 				<!--210123 양 카드 정보 가져오기, 우선은 모든 리스트로 작업 -->
-				<c:forEach var="j" begin="3" end="${lastRanking-1}">
+				<c:forEach var="j" begin="3" end="${fn:length(members)-1}">
 				<a href="/mypage/${members[j].no}">
-					<li class="ranking_card 
-				<c:if test="${loginMember!=null&&loginMember.no==members[j].no}">
-							 me
-				</c:if>
-					">
+					<li class="ranking_card <c:if test="${loginMember!=null&&loginMember.no==members[j].no}">me</c:if> ">
 						<div class="ranking_num">
 							${members[j].rankNum}
 						</div>
@@ -354,14 +354,9 @@ a {
 			<!--//ranking_card_box end-->
 		</div>
 		<!--ranking_weekly-->
-
 	</div>
 	<!--ranking end-->   
 	<c:import url="/WEB-INF/view/template/footer.jsp"/>
-
-	<script>
-	
-	</script>
-
 </body>
 </html>
+

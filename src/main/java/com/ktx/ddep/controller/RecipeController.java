@@ -1,8 +1,6 @@
 package com.ktx.ddep.controller;
 
-import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +22,10 @@ public class RecipeController {
 	
 	//레시피 리스트 페이지 접속
 	@RequestMapping(value ="/recipe",method = RequestMethod.GET)
-	public String recipePage(Model model,@RequestParam(defaultValue ="1") int page, @RequestParam(defaultValue = "recent") String choice, @RequestParam(defaultValue="null")String keyword) {
+	public String recipePage(Model model,
+			@RequestParam(defaultValue ="1") int page,
+			@RequestParam(defaultValue = "recent") String choice,
+			@RequestParam(defaultValue="null")String keyword) {
 		//검색시 키워드 저장
 		model.addAttribute("keyword",keyword);
 		//레시피 리스트 정보 불러오기
@@ -46,5 +47,6 @@ public class RecipeController {
 	public String recipeDetail(Model model, @PathVariable int recipeNo) {
 		return "";
 	}
+	
 
 }

@@ -185,30 +185,25 @@ WHERE r BETWEEN #{start} AND #{end}
 <!--21-02-13 16:39 양 레시피 검색  -->
 <select id="selectListByKeyword" parameterType="PageVO" resultType="Rcp">
 SELECT no,title, img, content, regdate, ribbonItem, memberNo, status, rcpsAvg, viewCount, scrapCount, nickname, profileImg, itemCount,price
-FROM(
-SELECT no,title, img, content, regdate, ribbonItem, memberNo, status, rcpsAvg, viewCount, scrapCount, nickname, profileImg, itemCount, price, rownum r
-FROM (
-SELECT r.no, title, img, content, r.regdate, ribbon_item ribbonItem, member_no memberNo, status, rcps_avg rcpsAvg, view_count viewCount,
-		(SELECT count(*) FROM rcps_saved WHERE recipe_no= r.no) scrapCount,(SELECT COUNT(*) FROM rcp_items WHERE recipe_no=r.no) itemCount,
-		(SELECT SUM(price) price FROM rcp_items WHERE recipe_no= r.no) price, nickname , profile_img profileImg
-FROM RCPS r, members m
-WHERE r.member_no= m.no AND status='c'
-<if test="keyword!=null">
-AND REGEXP_LIKE(title, #{keyword})
-</if>
-ORDER BY 
-<choose>
-<when test="choice == 'view'">
-viewCount DESC, r.regdate ASC
-</when>
-<when test="choice == 'scrap'">
-scrapCount DESC, r.regdate ASC
-</when>
-<otherwise>
-r.regdate DESC
-</otherwise>
-</choose>
-))
+FROM( SELECT no,title, img, content, regdate, ribbonItem, memberNo, status, rcpsAvg, viewCount, scrapCount, nickname, profileImg, itemCount, price, rownum r
+	  FROM ( SELECT r.no, title, img, content, r.regdate, ribbon_item ribbonItem, member_no memberNo, status, rcps_avg rcpsAvg, view_count viewCount,
+		     		(SELECT count(*) FROM rcps_saved WHERE recipe_no= r.no) scrapCount,
+		     		(SELECT COUNT(*) FROM rcp_items WHERE recipe_no=r.no) itemCount,
+		     		(SELECT SUM(price) price FROM rcp_items WHERE recipe_no= r.no) price,
+		       		nickname , profile_img profileImg
+			 FROM RCPS r, members m
+			 WHERE r.member_no= m.no AND status='c'
+			  <if test="keyword!=null">
+			  	AND REGEXP_LIKE(title, #{keyword})
+			  </if>
+			  	ORDER BY 
+			  <choose>
+				  <when test="choice == 'view'"> viewCount DESC, r.regdate ASC</when>
+				  <when test="choice == 'scrap'">scrapCount DESC, r.regdate ASC</when>
+				  <otherwise>r.regdate DESC</otherwise>
+			  </choose>
+		    )
+	  )
 WHERE r BETWEEN #{start} AND #{end}
 </select>
 

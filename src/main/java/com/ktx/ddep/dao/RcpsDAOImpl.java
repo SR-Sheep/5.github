@@ -24,25 +24,19 @@ public class RcpsDAOImpl implements RcpsDAO {
 	// 0129 방 내가쓴 레시피
 	@Override
 	public List<Rcp> selectMyRcps(int memberNo) {
-
 		return session.selectList("rcps.selectMyRcps", memberNo);
-
 	}
 
 	// 0130 방 임저레
 	@Override
 	public List<Rcp> selectTmpRcps(int memberNo) {
-
 		return session.selectList("rcps.selectTmpRcps", memberNo);
-
 	}
 
 	// 0130 방 임저레 삭제
 	@Override
 	public int deleteTmpRcps(int tmpRcpNo) {
-
 		return session.delete("rcps.deleteTmpRcps", tmpRcpNo);
-
 	}
 
 	// 김 0201
@@ -97,27 +91,21 @@ public class RcpsDAOImpl implements RcpsDAO {
 
 	// 21-02-13 15:59 양 키워드로 레시피 리스트 들고오기
 	public List<Rcp> selectListByKeyword(PageVO pageVO) {
-
 		return session.selectList("rcps.selectListByKeyword", pageVO);
-
 	}
 
 	// 21-02-13 18:11 양 검색 레시피 수 불러오기
 	public int countRcps(String keyword) {
-
 		return session.selectOne("rcps.countRcpsByKeyword", keyword);
-
 	}
 	
 	@Override
 	public int countRcps() {
 		return session.selectOne("rcps.countRcps");
 	}
-	
 
 	/* 21-02-14 19:34 양 조회수 업데이트 */
 	public int updateViewCount(int no) {
-
 		return session.update("rcps.updateViewCount", no);
 
 	}
